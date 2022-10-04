@@ -1,4 +1,6 @@
-**¿En qué consiste mi ApWeb?**
+### **¿En qué consiste mi ApWeb?**
+
+------
 
 
 
@@ -12,7 +14,9 @@ Por tanto alguien quiere por ejemplo en una fecha y hora hacer un evento se pond
 
 
 
-**¿De donde viene el término “Seeker”?**
+### **¿De donde viene el término “Seeker”?**
+
+------
 
 
 
@@ -20,7 +24,11 @@ El término de Game”seeker” proviene de la película de *Harry Potter* donde
 
 
 
-**USUARIOS REGISTRADOS Y NO REGISTRADOS**
+### **USUARIOS REGISTRADOS Y NO REGISTRADOS**
+
+------
+
+
 
 ***Registrados***
 
@@ -36,7 +44,9 @@ No podrán crear eventos pero si verlos y el número de personas que están unid
 
 
 
-***Información del Usuario requerida***
+### ***Información del Usuario requerida***
+
+------
 
 
 
@@ -78,7 +88,9 @@ Contraseña:
 
 
 
-**Estadísticas**
+### **Estadísticas**
+
+------
 
 
 
@@ -86,8 +98,10 @@ Los jugadores expondrán sus estadísticas de los juegos que hayan jugado para q
 
 
 
-Entity Relationship
+### Entity Relationship
+
+------
 
 
 
-![image](https://user-images.githubusercontent.com/99959051/193745597-dff75810-ec0d-4617-9285-16dfda68114a.png)
+![img](https://lh6.googleusercontent.com/g3QZv6kmPuOPMpJn5Qh2FSOx5HMWFG6Ff9I9DsRZILqyRSLhP6AuBxfd6x93q3GV7zLqz5_BjjfHlcGC1pTk2avQrXYA38Y7XYsPsLo3GgXfChUSQMIGiHeGOxMUj675qVpo4UnPvhQ8KlSO7MBoe2R57JYUH9_g1szzksu-uKFNby5pi5uf2fF_)
