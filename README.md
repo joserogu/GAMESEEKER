@@ -5,12 +5,35 @@
 
 
 Mi aplicación web va a tratar exclusivamente en la interacción y comunicación de jugadores donde se podrán realizar eventos o quedadas para jugar en juegos específicos donde requieran de jugabilidad cooperativa. 
+
 Las personas buscarán por el juego específico el cual quieran jugar y tendrán presentes una serie de eventos que irán creando los jugadores del juego que busquen para poder jugar entre ellos de forma cooperativa.
+
 Cada cliente de nuestra aplicación web tendrá por lo general:
-*Su nombre de usuario**Contraseña**Correo**Sexo [hombre/mujer/Otro]**Idioma**Edad*
+*Su nombre de usuario*
+
+*Contraseña*
+
+*Correo*
+
+*Sexo* [hombre/mujer/Otro]
+
+*Idioma*
+
+*Edad*
+
 También habrá moderadores que se ocuparán de banear o expulsar personas que no cumplan las normas o falten al respeto a los demás usuarios.
-Hay varios tipos de usuarios:**Usuario NO Registrado***, solamente podrá ver los anuncios que estén en el tablón, el número de jugadores que están unidos ya en ese evento y chatear de forma anónima en el chat general.***Usuario Registrado***, podrá crear eventos, chatear en el chat general, podrá inscribirse en cualquier evento.***Moderadores***, se ocuparán de controlar que las personas que estén registradas cumplan las normas de ámbito y no falten el respeto a los demás clientes.***Staff***, se encargará de realizar mantenimientos de la aplicación web para así mejorar los servicios en caso de caídas o fallos que se produzcan en la aplicación.*
-Por tanto alguien quiere por ejemplo en una fecha y hora hacer un evento se pondrá en el tablón de eventos del juego específico y el número de jugadores requiere para jugar dicho evento.
+
+Hay varios tipos de usuarios:
+
+- **Usuario NO Registrado**, solamente podrá ver los anuncios que estén en el tablón, el número de jugadores que están unidos ya en ese evento y chatear de forma anónima en el chat general.
+
+- **Usuario Registrado**, podrá crear eventos, chatear en el chat general, podrá inscribirse en cualquier evento.
+
+- **Moderadores**, se ocuparán de controlar que las personas que estén registradas cumplan las normas de ámbito y no falten el respeto a los demás clientes.
+
+- **Staff**, se encargará de realizar mantenimientos de la aplicación web para así mejorar los servicios en caso de caídas o fallos que se produzcan en la aplicación.
+
+  Por lo tanto, si alguien quiere por ejemplo en una fecha y hora hacer un evento se pondrá en el tablón de eventos del juego específico y el número de jugadores que requiera para jugar dicho evento.
 
 
 
@@ -20,7 +43,9 @@ Por tanto alguien quiere por ejemplo en una fecha y hora hacer un evento se pond
 
 
 
-El término de Game”seeker” proviene de la película de *Harry Potter* donde el famoso juego “*Quidditch*” uno de los jugadores se hacía llamar “*seeker*” o buscador el cual se encargaba de buscar la “Snitch dorada” para poder ganar la partida. Pues ya que el buscador era el que buscaba la snitch también jugaba en equipo por lo que ha sido con lo que he referenciado mi aplicación web, ya que, se trata de buscar pero en vez de la snitch pues es a personas para jugar en equipo al juego que busque el usuario.
+El término de Game”seeker” proviene de la película de *Harry Potter* donde el famoso juego “*Quidditch*” uno de los jugadores se hacía llamar “*seeker*” o buscador el cual se encargaba de buscar la “Snitch dorada” para poder ganar la partida. 
+
+Pues ya que el buscador era el que buscaba la snitch también jugaba en equipo por lo que ha sido con lo que he referenciado mi aplicación web, ya que, se trata de buscar pero en vez de la snitch pues es a personas para jugar en equipo al juego que busque el usuario.
 
 
 
@@ -32,9 +57,15 @@ El término de Game”seeker” proviene de la película de *Harry Potter* donde
 
 ***Registrados***
 
-Podrán buscar los juegos y apuntarse a eventos, juegos cooperativos (de 2 a más personas).
-Podrán crear eventos en los que solicite un número limitado de personas para jugar.
-También podrán escribir en el chat global donde podrán comunicarse con toda la comunidad que se haya registrado en la aplicación web.
+- Podrán buscar los juegos y apuntarse a eventos, juegos cooperativos (de 2 a más personas).
+
+
+
+- Podrán crear eventos en los que solicite un número limitado de personas para jugar.
+
+
+
+- También podrán escribir en el chat global donde podrán comunicarse con toda la comunidad que se haya registrado en la aplicación web.
 
 ***No registrados***
 
