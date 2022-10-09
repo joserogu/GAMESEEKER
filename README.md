@@ -141,4 +141,4 @@ Los jugadores expondrán sus estadísticas de los juegos que hayan jugado para q
 
 
 
-![img]![ApWebdiagramanuevo](https://user-images.githubusercontent.com/99959051/194754275-52bf5723-8d8a-427f-8bef-0bf76974e5c7.png)
+![ApWebdiagramanuevo](https://user-images.githubusercontent.com/99959051/194754275-52bf5723-8d8a-427f-8bef-0bf76974e5c7.png)
