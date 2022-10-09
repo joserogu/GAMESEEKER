@@ -25,7 +25,7 @@ También habrá moderadores que se ocuparán de banear o expulsar personas que n
 
 Hay varios tipos de usuarios:
 
-- **Usuario NO Registrado**, solamente podrá ver los anuncios que estén en el tablón, el número de jugadores que están unidos ya en ese evento y chatear de forma anónima en el chat general.
+- Los usuarios que no estén registrados, solamente podrán ver los anuncios que estén en el tablón, el número de jugadores que están unidos ya en ese evento y chatear de forma anónima en el chat general.
 
 - **Usuario Registrado**, podrá crear eventos, chatear en el chat general, podrá inscribirse en cualquier evento.
 
