@@ -33,7 +33,13 @@ Hay varios tipos de usuarios:
 
 - **Staff**, se encargará de realizar mantenimientos de la aplicación web para así mejorar los servicios en caso de caídas o fallos que se produzcan en la aplicación.
 
-  Por lo tanto, si alguien quiere por ejemplo en una fecha y hora hacer un evento se pondrá en el tablón de eventos del juego específico y el número de jugadores que requiera para jugar dicho evento.
+  Cuando un jugador crea un evento tendrá que elegir el juego en donde quiere realizar, la fecha y hora de cuando se va a llevar a cabo y el límite de jugadores.
+
+  Por tanto alguien quiere en una fecha y hora hacer un evento, se pondrá en el tablón de eventos del juego específico y el número de jugadores requiere para jugar dicho evento.
+
+  Todo esto engloba a una comunidad que será para cada juego específico como viene siendo “Comunidad para WoW”, “Comunidad para Space Invaders”, …
+Una comunidad tendrá su nombre, el número de jugadores que estén unidos a esa comunidad, su descripción y el juego del que se basa dicha comunidad.
+
 
 
 
@@ -135,4 +141,4 @@ Los jugadores expondrán sus estadísticas de los juegos que hayan jugado para q
 
 
 
-![img](https://lh6.googleusercontent.com/g3QZv6kmPuOPMpJn5Qh2FSOx5HMWFG6Ff9I9DsRZILqyRSLhP6AuBxfd6x93q3GV7zLqz5_BjjfHlcGC1pTk2avQrXYA38Y7XYsPsLo3GgXfChUSQMIGiHeGOxMUj675qVpo4UnPvhQ8KlSO7MBoe2R57JYUH9_g1szzksu-uKFNby5pi5uf2fF_)
+![img]![ApWebdiagramanuevo](https://user-images.githubusercontent.com/99959051/194754275-52bf5723-8d8a-427f-8bef-0bf76974e5c7.png)
