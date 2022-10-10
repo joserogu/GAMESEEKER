@@ -22,7 +22,7 @@ class client(models.Model):
         default=Gender.MAN,
     )
 
-    languaje = models.CharField(max_length = 20)
+    language = models.CharField(max_length = 20)
     birthday = models.DateField()
     staff = models.BooleanField()
     moderator = models.BooleanField()
@@ -47,7 +47,7 @@ class event(models.Model):
     limit_of_players = models.PositiveBigIntegerField()
     game = models.CharField(max_length = 20)
     description = models.CharField(max_length = 100)
-    languaje = models.CharField(max_length = 20)
+    language = models.CharField(max_length = 20
 
     def __str__(self) -> str:
         return self.name
