@@ -95,4 +95,4 @@ La gente puede que se lleve mejor por una que otra categoría específica como v
 ## **Relación de entidades (ER)**
 
 
-![img](https://lh6.googleusercontent.com/Z8yr9BlGkuOvUoMx-zMCU7Y0VVC0LxcHelLJW9RvgK2sPPKuBgkS1hi5xfYL8Yy0xd5M0lnAJly2hFTnJq74jGsyFAgZag8BaJIgFcfxbrTZhlS5q0I4rffQX9jeMBI6NhJWx6tQkCgluMSeJR0nO7iSvkfd6QVSyPi4NdQWOtq2Wxq8ahJUwLjm)
+![ApWebdiagramanuevoo](https://user-images.githubusercontent.com/99959051/194837381-eb35768e-8f2a-4de7-bc5b-73b4e92d24eb.png)
