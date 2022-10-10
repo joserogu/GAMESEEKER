@@ -1,144 +1,98 @@
-### **¿En qué consiste mi ApWeb?**
+## **Objetivo de GAMESEEK**
 
 ------
 
 
 
-Mi aplicación web va a tratar exclusivamente en la interacción y comunicación de jugadores donde se podrán realizar eventos o quedadas para jugar en juegos específicos donde requieran de jugabilidad cooperativa. 
+Su principal objetivo es que cualquier persona que no quiera jugar solo a un videojuego que requiera de cooperación, podrá ver un tablón con eventos relacionados con ese juego y poder así interactuar con otras personas que también busquen lo mismo para así poder entablar amistades y jugar entre aquellas personas.
 
-Las personas buscarán por el juego específico el cual quieran jugar y tendrán presentes una serie de eventos que irán creando los jugadores del juego que busquen para poder jugar entre ellos de forma cooperativa.
+Como ya he mencionado anteriormente, las personas buscarán el juego específico para jugar con amigos, por lo que indagarán por diferentes comunidades hasta ver una que más le llame la atención de dicho juego.
 
-Cada cliente de nuestra aplicación web tendrá por lo general:
-*Su nombre de usuario*
+Cada comunidad puede estar formada por varios eventos del mismo juego, siendo la jugabilidad de diferentes formas como quieran los jugadores, por ejemplo, un evento de ARK puede ser de farmeo (recoger materiales para así fortalecer la aldea que hayan construido a medida que pasan el tiempo los jugadores en el juego) o de RAIDS (que sería atacar otra aldea en la que habiten otros jugadores del servidor). 
 
-*Contraseña*
+Ya una vez sabidos los tipos de eventos que puede haber en una comunidad (ya dependiendo de la forma de jugar de cada uno), las comunidades necesitarán un tipo de seguridad/orden en cuanto al trato entre los clientes que estén en nuestra aplicación web, ya que, pueden haber *trolls* que tratan de molestar a los demás jugadores que pretendan llevar una comunidad sana sin toxicidad, por lo que los moderadores se encargarán de castigar ese tipo de gente expulsando a aquella gente durante x días/semanas o incluso a circunstancias graves se llevaría a cabo el baneo permanente.
 
-*Correo*
-
-*Sexo* [hombre/mujer/Otro]
-
-*Idioma*
-
-*Edad*
-
-También habrá moderadores que se ocuparán de banear o expulsar personas que no cumplan las normas o falten al respeto a los demás usuarios.
-
-Hay varios tipos de usuarios:
-
-- Los usuarios que no estén registrados, solamente podrán ver los anuncios que estén en el tablón, el número de jugadores que están unidos ya en ese evento y chatear de forma anónima en el chat general.
-
-- **Usuario Registrado**, podrá crear eventos, chatear en el chat general, podrá inscribirse en cualquier evento.
-
-- **Moderadores**, se ocuparán de controlar que las personas que estén registradas cumplan las normas de ámbito y no falten el respeto a los demás clientes.
-
-- **Staff**, se encargará de realizar mantenimientos de la aplicación web para así mejorar los servicios en caso de caídas o fallos que se produzcan en la aplicación.
-
-  Cuando un jugador crea un evento tendrá que elegir el juego en donde quiere realizar, la fecha y hora de cuando se va a llevar a cabo y el límite de jugadores.
-
-  Por tanto alguien quiere en una fecha y hora hacer un evento, se pondrá en el tablón de eventos del juego específico y el número de jugadores requiere para jugar dicho evento.
-
-  Todo esto engloba a una comunidad que será para cada juego específico como viene siendo “Comunidad para WoW”, “Comunidad para Space Invaders”, …
-Una comunidad tendrá su nombre, el número de jugadores que estén unidos a esa comunidad, su descripción y el juego del que se basa dicha comunidad.
-
-
-
-
-### **¿De donde viene el término “Seeker”?**
+Todo este manejo de administración de usuarios, eventos, comunidades tendría que estar alguien al mando para que nada de esto fuese un descontrol, por lo que tendríamos el Staff, que haría todas esas tareas y se encargaría del mantenimiento de la aplicación web para futuras mejoras de la aplicación o estructura de las páginas. También es el que decide quien puede ser moderador y quien no, porque no cualquiera puede ser moderador, sino un *troll* podría estar baneando a gente sin motivo alguno por lo que tiene que ser lo más seguro posible el hecho de ser seleccionado por el staff.
 
 ------
 
 
 
-El término de Game”seeker” proviene de la película de *Harry Potter* donde el famoso juego “*Quidditch*” uno de los jugadores se hacía llamar “*seeker*” o buscador el cual se encargaba de buscar la “Snitch dorada” para poder ganar la partida. 
-
-Pues ya que el buscador era el que buscaba la snitch también jugaba en equipo por lo que ha sido con lo que he referenciado mi aplicación web, ya que, se trata de buscar pero en vez de la snitch pues es a personas para jugar en equipo al juego que busque el usuario.
+## **¿Por qué el nombre de GAMESEEKER?**
 
 
-
-### **USUARIOS REGISTRADOS Y NO REGISTRADOS**
+El término de Game”seeker” proviene de la película de Harry Potter donde el famoso juego “Quidditch” uno de los jugadores se hacía llamar “seeker” o buscador el cual se encargaba de buscar la “Snitch dorada” para poder ganar la partida. Pues ya que el buscador era el que buscaba la snitch también jugaba en equipo por lo que ha sido con lo que he referenciado mi aplicación web, ya que, se trata de buscar pero en vez de la snitch pues es a personas para jugar en equipo al juego que busque el usuario.
 
 ------
 
+## **Cliente**
 
 
-***Registrados***
+Este es el usuario estándar para la aplicación web el cual podrá unirse a comunidades de juegos en los que esté interesado jugar de forma cooperativa. También podrá crear eventos solicitando un número específico de personas con las que tenga pensado jugar y escribir en un chat global para comunicarse con otras personas que busquen personas para jugar también.
 
-- Podrán buscar los juegos y apuntarse a eventos, juegos cooperativos (de 2 a más personas).
+También puede haber clientes que no estén registrados por lo que solamente podrán ver los juegos y eventos que se hayan programado sin poder apuntarse a ellos. Podrán chatear solo en el chat general de forma anónima, nunca dentro de comunidades de juegos. Tampoco podrán crear eventos pero sí podrán verlos en el tablón con el número de personas que están unidas.
 
+### **¿Qué información requiere?**
 
-
-- Podrán crear eventos en los que solicite un número limitado de personas para jugar.
-
-
-
-- También podrán escribir en el chat global donde podrán comunicarse con toda la comunidad que se haya registrado en la aplicación web.
-
-***No registrados***
-
-Solamente podrán ver los juegos y eventos que se hayan programado sin poder apuntarse a ellos.
-Podrán chatear pero de forma anónima en chats generales (no de comunidades privadas a ciertos juegos, como por ejemplo: **chat de LeagueOfLegends**).
-No podrán crear eventos pero si verlos y el número de personas que están unidas.**
+- Nombre real (el usuario elegirá si permite que personas externas y amigos puedan verlo)
+- Usuario
+- Contraseña
+- Correo
+- Género
+- Idioma
 
 
+### **¿Qué otros tipos hay?**
 
-### ***Información del Usuario requerida***
+Pues tendremos como ya nombramos antes el **moderador** que tendrá los mismos campos que un cliente normal, pero se encargará del control y de la buena convivencia en la comunidad.
 
-------
-
-
-
-*Nombre*: 
-
-*Usuario*:
-
-Contraseña:
-
-*Correo*:
-
-*Sexo*: Hombre o mujer
-
-*Idioma*:
-
-
-
-**Filtros**
-
-*Juego*:*
-
-*Nivel en juego específico*:*
-
-*Idioma*:
-
-*País*:
-
-
-
-**EVENTOS**
-
-*Hora*
-
-*Fecha*
-
-*Límite de jugadores*
-
-*Idioma*
-
-
-
-### **Estadísticas**
+También estará el **staff**, teniendo los mismo campos que el cliente y se encargará de realizar mantenimientos y mejoras en la propia estructura. 
 
 ------
 
+## **Eventos**
 
+Podrán ser creados por los clientes que se encuentren registrados en la aplicación web y serán vistos en un tablón de eventos. Los clientes podrán limitar el número de personas que se pueden meter en dicho evento y establecerán la fecha y hora en la que se realizará.
 
-Los jugadores expondrán sus estadísticas de los juegos que hayan jugado para que los otros jugadores puedan comparar y saber con quién van a jugar.
+### **¿Qué información requiere?**
 
-
-
-### Entity Relationship
+- Nombre
+- Fecha/Hora
+- Límite de jugadores
+- Juego
+- Descripción
+- Idioma
 
 ------
 
+## **Comunidad**
+
+Una comunidad estará formada por varios eventos de un propio juego como viene siendo por ejemplo “Comunidad de League of legends” donde solamente habrán eventos de “League of legends”. En dicha comunidad habrá un chat para que los jugadores vayan planeando eventos próximos que se entablen en la comunidad planeando fechas y del modo que quieran jugarlo (ya sea con un número limitado de jugadores).
+
+### **¿Qué información requiere?**
+
+- Nombre
+- Juego
+- Número de jugadores
+- Descripción
+- Idioma
+
+------
+
+## **Juego**
+
+El juego será con el que especificaremos donde se hará el evento. Ejemplo: “*League of legends*”, “*Call of duty*”, “*Fornite*”, …
+La gente puede que se lleve mejor por una que otra categoría específica como viene siendo Shooter(*Call of duty*), Estrategia(*Age of empires, Clash Royale*), Sandbox(*Minecraft, Roblox*), …
+
+### **¿Qué información requiere?**
+
+- Nombre
+- Descripción
+- Categoría
+
+------
+
+## **Relación de entidades (ER)**
 
 
-![ApWebdiagramanuevo](https://user-images.githubusercontent.com/99959051/194754275-52bf5723-8d8a-427f-8bef-0bf76974e5c7.png)
+![img](https://lh6.googleusercontent.com/Z8yr9BlGkuOvUoMx-zMCU7Y0VVC0LxcHelLJW9RvgK2sPPKuBgkS1hi5xfYL8Yy0xd5M0lnAJly2hFTnJq74jGsyFAgZag8BaJIgFcfxbrTZhlS5q0I4rffQX9jeMBI6NhJWx6tQkCgluMSeJR0nO7iSvkfd6QVSyPi4NdQWOtq2Wxq8ahJUwLjm)
