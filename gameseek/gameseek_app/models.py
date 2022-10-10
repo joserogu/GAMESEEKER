@@ -31,16 +31,6 @@ class client(models.Model):
         return self.name 
 
 
-class community(models.Model):
-    name = models.CharField(max_length = 20)
-    description = models.CharField(max_length = 100)
-    game = models.CharField(max_length = 20)
-    number_of_players = models.PositiveBigIntegerField()
-
-    def __str__(self) -> str:
-        return self.name
-
-
 class event(models.Model):
     name = models.CharField(max_length = 20)
     date = models.DateTimeField()
@@ -51,6 +41,19 @@ class event(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+
+class community(models.Model):
+    name = models.CharField(max_length = 20)
+    description = models.CharField(max_length = 100)
+    game = models.CharField(max_length = 20)
+    number_of_players = models.PositiveBigIntegerField()
+
+    def __str__(self) -> str:
+        return self.name
+
+
+
 
 
 
