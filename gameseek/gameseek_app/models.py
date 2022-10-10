@@ -31,7 +31,7 @@ class client(models.Model):
         return self.name 
 
 
-class communitie(models.Model):
+class community(models.Model):
     name = models.CharField(max_length = 20)
     description = models.CharField(max_length = 100)
     game = models.CharField(max_length = 20)
