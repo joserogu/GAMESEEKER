@@ -47,7 +47,7 @@ class event(models.Model):
     limit_of_players = models.PositiveBigIntegerField()
     game = models.CharField(max_length = 20)
     description = models.CharField(max_length = 100)
-    language = models.CharField(max_length = 20
+    language = models.CharField(max_length = 20)
 
     def __str__(self) -> str:
         return self.name
