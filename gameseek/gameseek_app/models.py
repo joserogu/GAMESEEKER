@@ -1,57 +1,56 @@
+from django.utils.translation import gettext_lazy as _
 from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.contrib.auth.models import User
+from django import forms
 
 
 
-class cliente(models.Model):
+class client(models.Model):
 
-    nombre = models.CharField(max_length = 20)
-    contraseña = models.CharField(max_length = 20)
-    correo = models.EmailField()
+    name = models.CharField(max_length = 30)
+    email = models.EmailField()
     
-    ELEGIR_GENERO =  [
-        ('H', 'Hombre'),
-        ('M', 'Mujer'),
-        ('O', 'Otro'),
-    ]
-    elegir_genero = models.CharField(max_length=1, choices=ELEGIR_GENERO)
+    class Gender(models.TextChoices):
+        MAN = "MAN", _("Man")
+        WOMAN = "WOMAN", _("Woman")
+        OTHER = "OTHER", _("Other")
 
-    idioma = models.CharField(max_length = 20)
-    cumpleaños = models.DateField()
+    gender = models.CharField(
+        max_length = 7,
+        choices=Gender.choices,
+        default=Gender.MAN,
+    )
+
+    languaje = models.CharField(max_length = 20)
+    birthday = models.DateField()
     staff = models.BooleanField()
-    moderador = models.BooleanField()
+    moderator = models.BooleanField()
 
     def __str__(self):
-        return self.nombre 
-    
-
-class Choice(models.Model):
-    question = models.ForeignKey(cliente, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+        return self.name 
 
 
-class comunidade(models.Model):
-    nombre = models.CharField(max_length = 20)
-    descripción = models.CharField(max_length = 100)
-    juego = models.CharField(max_length = 20)
-    numero_jugadores = models.PositiveBigIntegerField()
+class communitie(models.Model):
+    name = models.CharField(max_length = 20)
+    description = models.CharField(max_length = 100)
+    game = models.CharField(max_length = 20)
+    number_of_players = models.PositiveBigIntegerField()
 
     def __str__(self) -> str:
-        return self.nombre
+        return self.name
 
 
-class evento(models.Model):
-    nombre = models.CharField(max_length = 20)
-    fecha = models.DateTimeField()
-    limite_jugadores = models.PositiveBigIntegerField()
-    juego = models.CharField(max_length = 20)
-    descripcion = models.CharField(max_length = 100)
-    idioma = models.CharField(max_length = 20)
+class event(models.Model):
+    name = models.CharField(max_length = 20)
+    date = models.DateTimeField()
+    limit_of_players = models.PositiveBigIntegerField()
+    game = models.CharField(max_length = 20)
+    description = models.CharField(max_length = 100)
+    languaje = models.CharField(max_length = 20)
 
     def __str__(self) -> str:
-        return self.nombre
+        return self.name
 
 
 
