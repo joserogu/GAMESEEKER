@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from gameseek_app.views import CommunityListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('comunidades/', CommunityListView.as_view()),
 ]

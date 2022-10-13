@@ -1,0 +1,10 @@
+
+
+{% block content %}
+    <h2>Community</h2>
+    <ul>
+        {% for publisher in object_list %}
+            <li>{{ community.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

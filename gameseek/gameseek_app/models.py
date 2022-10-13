@@ -6,7 +6,7 @@ from django import forms
 
 
 
-class client(models.Model):
+class Client(models.Model):
 
     name = models.CharField(max_length = 30)
     email = models.EmailField()
@@ -31,7 +31,7 @@ class client(models.Model):
         return self.name 
 
 
-class event(models.Model):
+class Event(models.Model):
     name = models.CharField(max_length = 20)
     date = models.DateTimeField()
     limit_of_players = models.PositiveBigIntegerField()
@@ -43,19 +43,19 @@ class event(models.Model):
         return self.name
 
 
-class community(models.Model):
+class Community(models.Model):
     name = models.CharField(max_length = 20)
     description = models.CharField(max_length = 100)
     game = models.CharField(max_length = 20)
     number_of_players = models.PositiveBigIntegerField()
-
     def __str__(self) -> str:
         return self.name
 
 
-class game(models.Model):
+class Game(models.Model):
     name = models.CharField(max_length = 50)
-
+    description = models.CharField(max_length = 100)
+    category = models.CharField(max_length = 20)
     
     def __str__(self) -> str:
         return self.name
