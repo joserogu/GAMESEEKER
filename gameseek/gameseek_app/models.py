@@ -32,7 +32,7 @@ class Client(models.Model):
 
 
 class Event(models.Model):
-    name = models.CharField(max_length = 20)
+    name = models.CharField(max_length = 50)
     date = models.DateTimeField()
     limit_of_players = models.PositiveBigIntegerField()
     game = models.CharField(max_length = 20)

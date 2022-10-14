@@ -4,7 +4,7 @@
 <h2>Eventos</h2>
 <ul>
     {% for event in object_list %}
-        <li><a href={% url 'event-detail' event.id %}>{{ event.name }}</li>
+        <li>{{ event.name }}</li>
     {% endfor %}
 </ul>
 {% endblock %}
