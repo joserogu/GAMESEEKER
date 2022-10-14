@@ -15,9 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic.base import TemplateView
 from gameseek_app.views import CommunityListView
 
+from gameseek_app import views
+from gameseek_app.views import EventListView
+
 urlpatterns = [
+    path('', EventListView.as_view(), name='event_list'),
     path('admin/', admin.site.urls),
+    path('testpage', TemplateView.as_view(template_name='gameseek_app/inicio.html')),
     path('comunidades/', CommunityListView.as_view()),
 ]

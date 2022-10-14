@@ -1,0 +1,8 @@
+<h1>Events</h1>
+<ul>
+{% for article in object_list %}
+    <li>{{ event.pub_date|date }} - {{ event.headline }}</li>
+{% empty %}
+    <li>No events yet.</li>
+{% endfor %}
+</ul>
