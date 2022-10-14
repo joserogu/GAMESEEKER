@@ -2,10 +2,7 @@
 
 {% block content %}
 <h2>{{ object.name }}</h2>
-<ul>
-    {% for community in object_list %}
-        <li>{{ community.name }}</li>
-        <li><a href={% url 'community-detail' community.id %}>{{ community.name }}</li>
-    {% endfor %}
-</ul>
+    <p>Descripción: {{ object.description }}</p>
+    <p>Juego: {{ object.game }}</p>
+    <p>Número de jugadores: {{ object.number_of_players }}</p>
 {% endblock %}

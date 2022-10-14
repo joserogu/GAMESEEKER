@@ -17,16 +17,18 @@ from django.contrib import admin
 from django.urls import path
 from django.views.generic.base import TemplateView
 from gameseek_app import views
-from gameseek_app.views import EventListView, EventDetailView, CommunityDetailView, CommunityListView
+from gameseek_app.views import *
 
 
 
 urlpatterns = [
-    path('', EventListView.as_view(), name='event_list'),
+    path('', index),
     path('admin/', admin.site.urls),
-    path('testpage', TemplateView.as_view(template_name='gameseek_app/inicio.html')),
-    path('comunidades/', CommunityListView.as_view()),
-    path('comunidades/<int:pk>/', CommunityDetailView.as_view(), name='community-detail'),
-    path('eventos/', EventListView.as_view()),
+    path("clients/", ClientListView.as_view(), name="client-list"),
+    path("clients/", ClientDetailView.as_view(), name="client-detail"),
+    path('eventos/', EventListView.as_view(), name="event-list"),
     path('eventos/<int:pk>/', EventDetailView.as_view(), name='event-detail'),
+    path('comunidades/', CommunityListView.as_view(), name="community-list"),
+    path('comunidades/<int:pk>/', CommunityDetailView.as_view(), name='community-detail'),
+    
 ]

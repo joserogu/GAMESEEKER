@@ -8,7 +8,7 @@ from django import forms
 
 class Client(models.Model):
 
-    name = models.CharField(max_length = 30)
+    name = models.CharField(max_length = 50)
     email = models.EmailField()
     
     class Gender(models.TextChoices):
@@ -22,7 +22,7 @@ class Client(models.Model):
         default=Gender.MAN,
     )
 
-    language = models.CharField(max_length = 20)
+    language = models.CharField(max_length = 50)
     birthday = models.DateField()
     staff = models.BooleanField()
     moderator = models.BooleanField()
@@ -35,18 +35,18 @@ class Event(models.Model):
     name = models.CharField(max_length = 50)
     date = models.DateTimeField()
     limit_of_players = models.PositiveBigIntegerField()
-    game = models.CharField(max_length = 20)
+    game = models.CharField(max_length = 50)
     description = models.CharField(max_length = 100)
-    language = models.CharField(max_length = 20)
+    language = models.CharField(max_length = 50)
 
     def __str__(self) -> str:
         return self.name
 
 
 class Community(models.Model):
-    name = models.CharField(max_length = 20)
+    name = models.CharField(max_length = 50)
     description = models.CharField(max_length = 100)
-    game = models.CharField(max_length = 20)
+    game = models.CharField(max_length = 50)
     number_of_players = models.PositiveBigIntegerField()
     def __str__(self) -> str:
         return self.name
@@ -55,7 +55,7 @@ class Community(models.Model):
 class Game(models.Model):
     name = models.CharField(max_length = 50)
     description = models.CharField(max_length = 100)
-    category = models.CharField(max_length = 20)
+    category = models.CharField(max_length = 50)
     
     def __str__(self) -> str:
         return self.name
