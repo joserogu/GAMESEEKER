@@ -25,10 +25,11 @@ urlpatterns = [
     path('', index),
     path('admin/', admin.site.urls),
     path("clients/", ClientListView.as_view(), name="client-list"),
-    path("clients/", ClientDetailView.as_view(), name="client-detail"),
+    path("clients/<int:pk>/", ClientDetailView.as_view(), name="client-detail"), 
     path('eventos/', EventListView.as_view(), name="event-list"),
     path('eventos/<int:pk>/', EventDetailView.as_view(), name='event-detail'),
     path('comunidades/', CommunityListView.as_view(), name="community-list"),
     path('comunidades/<int:pk>/', CommunityDetailView.as_view(), name='community-detail'),
-    
+    path('juegos/', GameListView.as_view(), name="game-list"),
+    path('juegos/<int:pk>/', GameDetailView.as_view(), name='game-detail'),
 ]

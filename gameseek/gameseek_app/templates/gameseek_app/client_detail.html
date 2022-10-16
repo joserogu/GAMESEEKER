@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ object.name }}</h2>
+
+    <li style="list-style: none"><b>Correo:</b> {{ object.email }}</li>
+    <li style="list-style: none"><b>Género:</b> {{ object.gender }}</li>
+    <li style="list-style: none"><b>Idioma:</b> {{ object.language }}</li>
+    <li style="list-style: none"><b>Cumpleaños:</b> {{ object.birthday }}</li>
+
+{% endblock %}

@@ -2,7 +2,7 @@ from django.utils import timezone
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import ListView, DetailView
-from gameseek_app.models import Community, Client
+from gameseek_app.models import Community, Client, Game
 from .models import Event
 #INDEX
 
@@ -11,10 +11,7 @@ def index(request):
 #CLIENTS
 
 class ClientListView(ListView):
-
-    context_object_name = 'client_list'
-    queryset = Client.objects.filter(name='client_name')
-    template_name = 'gameseek_app/clientes_list.html'
+    model = Client
 
 class ClientDetailView(DetailView):
 
@@ -47,3 +44,11 @@ class CommunityListView(ListView):
 
 class CommunityDetailView(DetailView):
     queryset = Community.objects.all()
+
+#GAMES
+
+class GameListView(ListView):
+    model = Game
+
+class GameDetailView(DetailView):
+    queryset = Game.objects.all()

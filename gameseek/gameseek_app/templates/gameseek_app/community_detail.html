@@ -1,8 +1,11 @@
-
+{% extends "base.html" %}
 
 {% block content %}
 <h2>{{ object.name }}</h2>
-    <p>Descripción: {{ object.description }}</p>
-    <p>Juego: {{ object.game }}</p>
-    <p>Número de jugadores: {{ object.number_of_players }}</p>
+
+    <li style="list-style: none"><b>Juego:</b> {{ object.game }}</li>
+    <li style="list-style: none"><b>Número de jugadores:</b> {{ object.number_of_players }}</li>
+    <li style="list-style: none"><b>Descripción:</b> {{ object.description }}</li>    
+
+
 {% endblock %}

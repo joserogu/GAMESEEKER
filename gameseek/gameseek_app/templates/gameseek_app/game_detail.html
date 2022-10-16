@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ object.name }}</h2>
+
+    <li style="list-style: none"><b>Categoría:</b> {{ object.category }}</li>
+    <li style="list-style: none"><b>Descipción:</b> {{ object.description }}</li>
+
+{% endblock %}
