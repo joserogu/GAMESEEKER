@@ -31,7 +31,7 @@ class Client(models.Model):
     #GET_ABSOLUTE_URL
 
     def get_absolute_url(self):
-        return reverse("client_detail", kwargs={"pk": self.pk})
+        return reverse("client-detail", kwargs={"pk": self.pk})
     
     def __str__(self):
         return self.name 
@@ -52,7 +52,7 @@ class Event(models.Model):
     #GET_ABSOLUTE_URL
 
     def get_absolute_url(self):
-        return reverse("event_detail", kwargs={"pk": self.pk})
+        return reverse("event-detail", kwargs={"pk": self.pk})
 
     def __str__(self) -> str:
         return self.name
@@ -71,7 +71,7 @@ class Community(models.Model):
     #GET_ABSOLUTE_URL
 
     def get_absolute_url(self):
-        return reverse("community_detail", kwargs={"pk": self.pk})
+        return reverse("community-detail", kwargs={"pk": self.pk})
 
     def __str__(self) -> str:
         return self.name
@@ -89,7 +89,7 @@ class Game(models.Model):
     #GET_ABSOLUTE_URL
 
     def get_absolute_url(self):
-        return reverse("game_detail", kwargs={"pk": self.pk})
+        return reverse("game-detail", kwargs={"pk": self.pk})
 
     def __str__(self) -> str:
         return self.name

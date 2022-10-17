@@ -30,7 +30,7 @@ urlpatterns = [
     path("clients/", ClientListView.as_view(), name="client-list"),
     path("clients/<int:pk>/", ClientDetailView.as_view(), name="client-detail"),
     path("clients/add/", ClientCreateView.as_view(), name='client-add'),
-    path('clients/<int:pk>/', ClientUpdateView.as_view(), name='client-update'),
+    path('clients/<int:pk>/edit/', ClientUpdateView.as_view(), name='client-update'),
     path('clients/<int:pk>/delete/', ClientDeleteView.as_view(), name='client-delete'),
 
     #EVENTOS
@@ -38,7 +38,7 @@ urlpatterns = [
     path('eventos/', EventListView.as_view(), name="event-list"),
     path('eventos/<int:pk>/', EventDetailView.as_view(), name='event-detail'),
     path("eventos/add/", EventCreateView.as_view(), name='event-add'),
-    path('eventos/<int:pk>/', EventUpdateView.as_view(), name='event-update'),
+    path('eventos/<int:pk>/edit/', EventUpdateView.as_view(), name='event-update'),
     path('eventos/<int:pk>/delete/', EventDeleteView.as_view(), name='event-delete'),
 
     #COMUNIDADES
@@ -46,7 +46,7 @@ urlpatterns = [
     path('comunidades/', CommunityListView.as_view(), name="community-list"),
     path('comunidades/<int:pk>/', CommunityDetailView.as_view(), name='community-detail'),
     path("comunidades/add/", CommunityCreateView.as_view(), name='community-add'),
-    path('comunidades/<int:pk>/', CommunityUpdateView.as_view(), name='community-update'),
+    path('comunidades/<int:pk>/edit/', CommunityUpdateView.as_view(), name='community-update'),
     path('comunidades/<int:pk>/delete/', CommunityDeleteView.as_view(), name='community-delete'),
 
     #JUEGOS
@@ -54,6 +54,6 @@ urlpatterns = [
     path('juegos/', GameListView.as_view(), name="game-list"),
     path('juegos/<int:pk>/', GameDetailView.as_view(), name='game-detail'),
     path("juegos/add/", GameCreateView.as_view(), name='game-add'),
-    path('juegos/<int:pk>/', GameUpdateView.as_view(), name='game-update'),
+    path('juegos/<int:pk>/edit/', GameUpdateView.as_view(), name='game-update'),
     path('juegos/<int:pk>/delete/', GameDeleteView.as_view(), name='game-delete'),
 ]

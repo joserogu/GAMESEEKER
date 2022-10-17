@@ -22,17 +22,16 @@ class ClientListView(ListView):
     model = Client
 
 class ClientDetailView(DetailView):
-
-    context_object_name = 'client'
     queryset = Client.objects.all()
+    context_object_name = 'client'
+
+class ClientUpdateView(UpdateView):
+    queryset = Client.objects.all()
+    fields = ['name', 'email', 'gender', 'language', 'birthday', 'staff', 'moderator']
 
 class ClientCreateView(CreateView):
     model = Client
     fields = ['name', 'email', 'gender', 'language', 'birthday', 'staff', 'moderator']
-
-class ClientUpdateView(UpdateView):
-    model = Client
-    fields = ['name']
 
 class ClientDeleteView(DeleteView):
     model = Client
@@ -57,13 +56,13 @@ class EventDetailView(DetailView):
         context['now'] = timezone.now()
         return context
 
+class EventUpdateView(UpdateView):
+    queryset = Event.objects.all()
+    fields = ['name', 'date', 'limit_of_players', 'game', 'description', 'language']
+
 class EventCreateView(CreateView):
     model = Event
     fields = ['name', 'date', 'limit_of_players', 'game', 'description', 'language']
-
-class EventUpdateView(UpdateView):
-    model = Event
-    fields = ['name']
 
 class EventDeleteView(DeleteView):
     model = Event
@@ -77,13 +76,13 @@ class CommunityListView(ListView):
 class CommunityDetailView(DetailView):
     queryset = Community.objects.all()
 
+class CommunityUpdateView(UpdateView):
+    queryset = Community.objects.all()
+    fields = ['name', 'description', 'game', 'number_of_players']    
+
 class CommunityCreateView(CreateView):
     model = Community
     fields = ['name', 'description', 'game', 'number_of_players']
-
-class CommunityUpdateView(UpdateView):
-    model = Community
-    fields = ['name']
 
 class CommunityDeleteView(DeleteView):
     model = Community
@@ -97,13 +96,13 @@ class GameListView(ListView):
 class GameDetailView(DetailView):
     queryset = Game.objects.all()
 
+class GameUpdateView(UpdateView):
+    queryset = Game.objects.all()
+    fields = ['name', 'description', 'category']
+
 class GameCreateView(CreateView):
     model = Game
     fields = ['name', 'description', 'category']
-
-class GameUpdateView(UpdateView):
-    model = Game
-    fields = ['name']
 
 class GameDeleteView(DeleteView):
     model = Game
