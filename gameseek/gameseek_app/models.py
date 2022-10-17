@@ -4,11 +4,12 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 
-
+#CLIENTE
 
 class Client(models.Model):
 
     #Atributos
+
     name = models.CharField(max_length = 100)
     email = models.EmailField()
     
@@ -27,13 +28,20 @@ class Client(models.Model):
     staff = models.BooleanField()
     moderator = models.BooleanField()
 
+    #GET_ABSOLUTE_URL
+
+    def get_absolute_url(self):
+        return reverse("client_detail", kwargs={"pk": self.pk})
+    
     def __str__(self):
         return self.name 
 
+#EVENTOS
 
 class Event(models.Model):
     
     #Atributos
+
     name = models.CharField(max_length = 100)
     date = models.DateTimeField()
     limit_of_players = models.PositiveBigIntegerField()
@@ -41,25 +49,26 @@ class Event(models.Model):
     description = models.CharField(max_length = 1000)
     language = models.CharField(max_length = 100)
 
-    #Cuando cree el evento le llevará al details
+    #GET_ABSOLUTE_URL
 
     def get_absolute_url(self):
         return reverse("event_detail", kwargs={"pk": self.pk})
-    
 
     def __str__(self) -> str:
         return self.name
 
+#COMUNIDAD
 
 class Community(models.Model):
     
     #Atributos
+
     name = models.CharField(max_length = 100)
     description = models.CharField(max_length = 1000)
     game = models.CharField(max_length = 100)
     number_of_players = models.PositiveBigIntegerField()
 
-    #Cuando cree una comunidad le llevará al details
+    #GET_ABSOLUTE_URL
 
     def get_absolute_url(self):
         return reverse("community_detail", kwargs={"pk": self.pk})
@@ -67,14 +76,21 @@ class Community(models.Model):
     def __str__(self) -> str:
         return self.name
 
+#JUEGOS
 
 class Game(models.Model):
     
     #Atributos
+    
     name = models.CharField(max_length = 100)
     description = models.CharField(max_length = 1000)
     category = models.CharField(max_length = 100)
     
+    #GET_ABSOLUTE_URL
+
+    def get_absolute_url(self):
+        return reverse("game_detail", kwargs={"pk": self.pk})
+
     def __str__(self) -> str:
         return self.name
 
