@@ -16,13 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic.base import TemplateView
-from gameseek_app import views
 from gameseek_app.views import *
 
 
 
 urlpatterns = [
     path('', index),
+    path('contacto/', contact),
     path('admin/', admin.site.urls),
     path("clients/", ClientListView.as_view(), name="client-list"),
     path("clients/<int:pk>/", ClientDetailView.as_view(), name="client-detail"), 

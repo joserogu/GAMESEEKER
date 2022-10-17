@@ -8,6 +8,13 @@ from .models import Event
 
 def index(request):
     return render(request, "gameseek_app/home.html")
+
+#CONTACTO
+
+def contact(request):
+    return render(request, "gameseek_app/contacto.html")
+
+
 #CLIENTS
 
 class ClientListView(ListView):
