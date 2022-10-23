@@ -3,18 +3,16 @@
 
 {% block title %}Inicio{% endblock %}
 
-
-{% comment %} CSS {% endcomment %}
-
-
 {% block style %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="static/css/styles.css" rel="stylesheet">
-    <!-- Fonts CSS-->
-    <link rel="stylesheet" href="static/css/heading.css">
-    <link rel="stylesheet" href="static/css/body.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %} rel="stylesheet">
+        
+        <!-- Fonts CSS-->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/heading.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/body.css' %}">
 {% endblock %}
+
 
 {% block content %}
 <body id="page-top">
@@ -34,8 +32,8 @@
         </div>
     </nav>
     <header class="masthead bg-primary text-white text-center">
-        <div class="container d-flex align-items-center flex-column">
-            <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="assets/img/Logo.png" alt="">
+        <div class="container d-flex align-items-center flex-column">             
+            <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="{% static 'assets/img/Logo.png' %}" alt="">
             <!-- Masthead Heading-->
             <h1 class="masthead-heading mb-0">GAMESEEKER</h1>
             <!-- Icon Divider-->
