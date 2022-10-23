@@ -8,17 +8,11 @@
         <title>Gameseeker | {% block title %}{% endblock %}</title>
         <link rel="icon" href="{% static 'img/icono.ico' %}" type="image/x-icon"/>
         
-        <div id "style">
-        {% block style %}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'css/styles.css' %} rel="stylesheet">
-        
-        <!-- Fonts CSS-->
+        <link href="{% static "css/styles.css" %}" rel="stylesheet" >
         <link rel="stylesheet" type="text/css" href="{% static 'css/heading.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/body.css' %}">
-        {% endblock %}
-        </div>
+
     
     </head>
 
