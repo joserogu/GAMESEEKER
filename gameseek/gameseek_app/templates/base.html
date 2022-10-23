@@ -1,25 +1,30 @@
 <!DOCTYPE html>
+{% load static %}
+
+
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="style.css">
-    <title>{% block title %}Gameseeker{% endblock %}</title>
-</head>
-
-<body>
-    <div id="sidebar">
-        {% block sidebar %}
-        <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/contacto/">Contacto</a></li>
-        </ul>
+    <head>
+        {% comment %} <link rel="stylesheet" href="style.css"> {% endcomment %}
+        <title>Gameseeker | {% block title %}{% endblock %}</title>
+        <link rel="icon" href="../../static_pro/img/icono.ico" type="image/x-icon"/>
+        <style>
+        {% block style %}
         {% endblock %}
-    </div>
-    
-    <div id="content">
-        {% block content %}{% endblock %}
-    </div>
+        </style>
+    </head>
 
-
-    
-</body>
+    <body>
+        <div id="sidebar">
+            {% block sidebar %}
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/contacto/">Contacto</a></li>
+            </ul>
+            {% endblock %}
+        </div>
+        
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
 </html>

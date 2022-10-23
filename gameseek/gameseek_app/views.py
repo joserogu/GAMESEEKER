@@ -8,7 +8,12 @@ from gameseek_app.models import *
 #INDEX
 
 def index(request):
-    return render(request, "gameseek_app/home.html")
+    return render(request, "gameseek_app/inicio.html")
+
+#ACERCA_DE
+
+def about(request):
+    return render(request, "gameseek_app/about.html")
 
 #CONTACTO
 
