@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Eventos</h2>
-<ul>
+<br>
+<br>
+    <ul>
+    <h2>Eventos</h2>
     {% for event in object_list %}
-        <li><a href={% url 'event-detail' event.id %}>{{ event.name }}</li>
+        <li><a href={% url 'event-detail' event.id %}>{{ event.name }}</a></li>
     {% endfor %}
+    <br>
+    <button type="button" class="btn btn-dark" onclick="window.location.href='/eventos/add/'">Añadir</button>
 </ul>
 {% endblock %}

@@ -1,13 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Eliminar comunidad</h1>
+<br>
+<br>
+    <ul>    
+    <h1>Eliminar comunidad</h1>
 
-<p>¿Estás seguro que quieres eliminar a {{ object.name }}?:</p>
+    <p>¿Estás seguro que quieres eliminar a {{ object.name }}?:</p>
 
-<form action="" method="post">
-{% csrf_token %}
-<input type="submit" value="Eliminar">
-</form>
-<button type="button" onclick="window.location='{% url 'community-list' %}'"> Cancelar </button>
+    <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Eliminar">
+    </form>
+    <br>
+    <button type="button" onclick="window.location='{% url 'community-list' %}'"> Cancelar </button>
+    </br>
 {% endblock %}

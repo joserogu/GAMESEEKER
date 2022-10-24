@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>{{ object.name }}</h2>
-
+<br>
+<br>
+    <ul>
+    <h2>{{ object.name }}</h2>
     <li style="list-style: none"><b>Categoría:</b> {{ object.category }}</li>
     <li style="list-style: none"><b>Descipción:</b> {{ object.description }}</li>
-
+    <br>
+    <button type="button" class="btn btn-dark" onclick="window.location.href='edit/'">Editar</button>
+    <button type="button" class="btn btn-dark" onclick="window.location.href='delete/'">Eliminar</button>
+    </ul>
 {% endblock %}

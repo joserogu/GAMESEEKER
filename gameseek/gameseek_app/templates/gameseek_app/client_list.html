@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+<br>
+<br>
 <h2>Clientes</h2>
 <ul>
     {% for client in object_list %}
-    <li><a href={% url 'client-detail' client.id %}>{{ client.name }}</li>
+    <li><a href={% url 'client-detail' client.id %}>{{ client.name }}</a></li>
     {% endfor %}
+    <br>
+    <button type="button" class="btn btn-dark" onclick="window.location.href='/clients/add/'">Añadir</button>
 </ul>
 {% endblock %}
