@@ -3,8 +3,8 @@
 {% block content %}
 <br>
 <br>
-<h2>Comunidad</h2>
-<ul>
+    <ul>
+    <h2>Comunidades</h2>
     {% for community in object_list %}
         <li><a href={% url 'community-detail' community.id %}>{{ community.name }}</a></li>
     {% endfor %}
