@@ -6,7 +6,7 @@
     <ul>
     <h2>Clientes</h2>
     {% for client in object_list %}
-    <li><a href={% url 'client-detail' client.id %}>{{ client.name }}</a></li>
+    <li><a href={% url 'client-detail' client.id %}>{{ client.username }}</a></li>
     {% endfor %}
     <br>
     <button type="button" class="btn btn-dark" onclick="window.location.href='/clients/add/'">Añadir</button>
