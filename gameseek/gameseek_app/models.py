@@ -2,17 +2,14 @@ from email.policy import default
 from django.utils.translation import gettext_lazy as _
 from unittest.util import _MAX_LENGTH
 from django.db import models
-from django.contrib.auth.models import User, AbstractBaseUser
+from django.contrib.auth.models import User, AbstractUser
 from django.urls import reverse
 
 #CLIENTE
 
-class Client(models.Model):
+class Client(AbstractUser):
 
     #Atributos
-
-    username = models.CharField(max_length = 100)
-    email = models.EmailField()
     
     class Gender(models.TextChoices):
         HOMBRE = "HOMBRE", _("Hombre")
@@ -24,10 +21,8 @@ class Client(models.Model):
         choices=Gender.choices,
         default=Gender.HOMBRE,
     )
-    language = models.CharField(max_length = 100)
-    birthday = models.DateField()
-    staff = models.BooleanField(default=False)
-    moderator = models.BooleanField(default=False)
+    language = models.CharField(max_length = 100, null=True)
+    birthday = models.DateField(null=True)
 
     #GET_ABSOLUTE_URL
 
@@ -35,12 +30,8 @@ class Client(models.Model):
         return reverse("client-detail", kwargs={"pk": self.pk})
     
     def __str__(self):
-        return self.name 
+        return self.username 
 
-class MyUser(AbstractBaseUser):
-    identifier = models.CharField(max_length=40, unique=True)
-    ...
-    USERNAME_FIELD: 'identifier'
 
 
 #EVENTOS
