@@ -32,11 +32,11 @@ class ClientDetailView(DetailView):
 
 class ClientUpdateView(UpdateView):
     queryset = Client.objects.all()
-    fields = ['username', 'email', 'gender', 'language', 'birthday', 'staff', 'moderator']
+    fields = ['username', 'email', 'gender', 'language', 'birthday']
 
 class ClientCreateView(CreateView):
     model = Client
-    fields = ['username', 'email', 'gender', 'language', 'birthday', 'staff', 'moderator']
+    fields = ['username', 'email', 'gender', 'language', 'birthday']
 
 class ClientDeleteView(DeleteView):
     model = Client
