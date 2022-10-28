@@ -12,6 +12,7 @@ class Client(AbstractUser):
     #Atributos
     
     class Gender(models.TextChoices):
+        VACIO = "VACIO", _("----")
         HOMBRE = "HOMBRE", _("Hombre")
         MUJER = "MUJER", _("Mujer")
         OTRO = "OTRO", _("Otro")
@@ -19,7 +20,7 @@ class Client(AbstractUser):
     gender = models.CharField(
         max_length = 7,
         choices=Gender.choices,
-        default=Gender.HOMBRE,
+        default=Gender.VACIO,
     )
     language = models.CharField(max_length = 100, null=True)
     birthday = models.DateField(null=True)

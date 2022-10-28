@@ -5,6 +5,7 @@
 <html lang="en">
     <head>
         {% comment %} <link rel="stylesheet" href="style.css"> {% endcomment %}
+        <meta charset="utf-8">
         <title>Gameseeker | {% block title %}{% endblock %}</title>
         <link rel="icon" href="{% static 'img/icono.ico' %}" type="image/x-icon"/>
         
@@ -17,16 +18,6 @@
     </head>
 
     <body>
-        <div id="sidebar">
-            {% block sidebar %}
-            <ul>
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/contacto/">Contacto</a></li>
-            </ul>
-            {% endblock %}
-        </div>
-
-
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
             <div class="container"><a class="navbar-brand js-scroll-trigger" href="/">GAMESEEKER</a>
                 <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
@@ -46,15 +37,26 @@
                         </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/contacto">Contacto</a>
                         </li>
+                        <li class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">
+                        {% if user.is_authenticated %}
+                            Hola {{ user.username }}!
+                            <p><a href="{% url 'logout' %}">Log Out</a></p>
+                         {% else %}
+                            <p>No estás logueado</p>
+                            <a href="{% url 'login' %}">Log In</a>
+                        {% endif %}
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        
+        {% block content %}
         <div id="content">
-            {% block content %}{% endblock %}
+            <section class="page-section portfolio">
+            </section>
         </div>
+        {% endblock %}
         <footer class="footer text-center">
             <div class="container">
                 <div class="row">
