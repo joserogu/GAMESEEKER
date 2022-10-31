@@ -2,12 +2,11 @@
 {% block title %}Clientes{% endblock %}
 
 {% block content %}
-<br>
-<br>
+    <section class="page-section portfolio" id="portfolio">
     <ul>
     <h1>Eliminar cliente</h1>
 
-    <p>¿Estás seguro que quieres eliminar a {{ object.name }}?:</p>
+    <p>¿Estás seguro que quieres eliminar a {{ object.username }}?:</p>
 
     <form action="" method="post">
     {% csrf_token %}
@@ -16,4 +15,5 @@
     <br>
     <button type="button" onclick="window.location='{% url 'client-list' %}'"> Cancelar </button>
     </ul>
+    </section>
 {% endblock %}

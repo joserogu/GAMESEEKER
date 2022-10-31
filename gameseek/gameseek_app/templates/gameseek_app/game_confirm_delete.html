@@ -2,8 +2,7 @@
 {% block title %}Juegos{% endblock %}
 
 {% block content %}
-<br>
-<br>
+<section class="page-section portfolio" id="portfolio">
     <ul>
     <h1>Eliminar juego</h1>
     <p>¿Estás seguro que quieres eliminar a {{ object.name }}?:</p>
@@ -15,4 +14,5 @@
     <br>
     <button type="button" onclick="window.location='{% url 'game-list' %}'"> Cancelar </button>
     </ul>
+</section>
 {% endblock %}

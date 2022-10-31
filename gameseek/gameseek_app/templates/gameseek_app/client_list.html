@@ -2,9 +2,7 @@
 {% block title %}Clientes{% endblock %}
 
 {% block content %}
-<br>
-<br>
-    <ul>
+    <section class="page-section portfolio" id="portfolio">
     <h2>Clientes</h2>
     {% for client in object_list %}
     <li><a href={% url 'client-detail' client.id %}>{{ client.username }}</a></li>
@@ -12,4 +10,5 @@
     <br>
     <button type="button" class="btn btn-dark" onclick="window.location.href='/clients/add/'">Añadir</button>
     </ul>
+    </section>
 {% endblock %}

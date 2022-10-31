@@ -2,8 +2,7 @@
 {% block title %}Juegos{% endblock %}
 
 {% block content %}
-<br>
-<br>
+<section class="page-section portfolio" id="portfolio">
     <ul>
     <h2>Añadir juego</h2>
     <form method="POST" class="post-form">{% csrf_token %}
@@ -11,4 +10,5 @@
         <button type="submit" class="save btn btn-dark">Guardar</button>
     </form>
     </ul>
+</section>
 {% endblock %}

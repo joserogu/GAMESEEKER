@@ -2,8 +2,7 @@
 {% block title %}Eventos{% endblock %}
 
 {% block content %}
-<br>
-<br>
+<section class="page-section portfolio" id="portfolio">
     <ul>
     <h2>Eventos</h2>
     {% for event in object_list %}
@@ -12,4 +11,5 @@
     <br>
     <button type="button" class="btn btn-dark" onclick="window.location.href='/eventos/add/'">Añadir</button>
 </ul>
+</section>
 {% endblock %}

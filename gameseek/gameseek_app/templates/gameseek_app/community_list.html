@@ -2,8 +2,7 @@
 {% block title %}Comunidades{% endblock %}
 
 {% block content %}
-<br>
-<br>
+<section class="page-section portfolio" id="portfolio">
     <ul>
     <h2>Comunidades</h2>
     {% for community in object_list %}
@@ -12,4 +11,5 @@
     <br>
     <button type="button" class="btn btn-dark" onclick="window.location.href='/comunidades/add/'">Añadir</button>
 </ul>
+</section>
 {% endblock %}
