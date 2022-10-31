@@ -4,7 +4,7 @@
 {% block content %}
 <section class="page-section portfolio" id="portfolio">
     <ul>
-    <h2>Crear evento</h2>
+    <h2>Editar evento</h2>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-dark">Guardar</button>

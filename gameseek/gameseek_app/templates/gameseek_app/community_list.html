@@ -6,7 +6,7 @@
     <ul>
     <h2>Comunidades</h2>
     {% for community in object_list %}
-        <li><a href={% url 'community-detail' community.id %}>{{ community.name }}</a></li>
+        <li><a href={% url 'community-detail' community.id %}>{{ community.name }} </a><a href={% url 'community-update' community.id %}>Editar  </a><a href={% url 'community-delete' community.id %}>Eliminar</a></li>
     {% endfor %}
     <br>
     <button type="button" class="btn btn-dark" onclick="window.location.href='/comunidades/add/'">Añadir</button>
