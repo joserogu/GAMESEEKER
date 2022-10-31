@@ -54,8 +54,7 @@ class ClientUpdateView(UpdateView):
 
 class ClientCreateView(CreateView):
     model = Client
-    fields = ['username', 'email', 'gender', 'language', 'birthday']
-
+    form_class=NewUserForm
 class ClientDeleteView(DeleteView):
     model = Client
     success_url = reverse_lazy('client-list')

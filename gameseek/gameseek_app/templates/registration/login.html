@@ -4,9 +4,11 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
+<section class="page-section portfolio" id="portfolio">
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Log In</button>
 </form>
+</section>
 {% endblock %}

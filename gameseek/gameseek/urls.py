@@ -27,10 +27,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
 
-    #FORMS
-
-    path("register", views.register_request, name="register"),
-
     #CLIENTES
     
     path("clients/", ClientListView.as_view(), name="client-list"),
