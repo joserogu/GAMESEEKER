@@ -54,9 +54,9 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #ffffff;
   text-align: left;
-  background-color: #fff; }
+  background-color: #202326; }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important; }
@@ -130,7 +130,7 @@ sup {
   top: -.5em; }
 
 a {
-  color: #1d1921;
+  color: #ffffff;
   text-decoration: none;
   background-color: transparent; }
   a:hover {
@@ -293,6 +293,7 @@ template {
 
 [hidden] {
   display: none !important; }
+
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -7380,7 +7381,7 @@ form .row:first-child .floating-label-form-group {
   color: #fff; }
 
 .copyright {
-  background-color: #6a20fe; }
+  background-color: #343a40; }
 
 #brandImage {
   height: 2rem; }
