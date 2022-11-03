@@ -1,14 +1,60 @@
-<!-- templates/registration/login.html -->
-{% extends 'base.html' %}
+<!DOCTYPE html>
+{% load static %}
 
-{% block title %}Login{% endblock %}
 
-{% block content %}
-<section class="page-section portfolio" id="portfolio">
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log In</button>
-</form>
-</section>
-{% endblock %}
+<html lang="en">
+    <head>
+        {% comment %} <link rel="stylesheet" href="style.css"> {% endcomment %}
+        <meta charset="utf-8">
+        <title>Gameseeker | {% block title %}{% endblock %}</title>
+        <link rel="icon" href="{% static 'img/icono.ico' %}" type="image/x-icon"/>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <link href="{% static "css/styles.css" %}" rel="stylesheet" >
+        <link rel="stylesheet" type="text/css" href="{% static 'css/heading.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/body.css' %}">
+
+    
+    </head>
+    <body>
+      <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+
+                  <div class="mb-md-5 mt-md-4 pb-5">
+                    <form method="post">
+                    <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                    <p class="text-white-50 mb-5">Please enter your login and password!</p>
+                    <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    
+                    
+                    <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+
+                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                  </form>
+                    <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                      <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                      <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                      <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                    </div>
+
+                  </div>
+
+                  <div>
+                    <p class="mb-0">¿No tienes cuenta? <a href="#!" class="text-white-50 fw-bold">Sign Up</a>
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      </body>
