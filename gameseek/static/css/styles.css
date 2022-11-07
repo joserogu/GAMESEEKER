@@ -134,7 +134,7 @@ a {
   text-decoration: none;
   background-color: transparent; }
   a:hover {
-    color: black;
+    color: rgb(152, 49, 189);
     text-decoration: underline; }
 
 a:not([href]) {
@@ -7381,7 +7381,7 @@ form .row:first-child .floating-label-form-group {
   color: #fff; }
 
 .copyright {
-  background-color: #343a40; }
+  background-color: #8c53fe; }
 
 #brandImage {
   height: 2rem; }

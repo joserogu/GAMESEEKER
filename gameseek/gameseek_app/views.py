@@ -8,6 +8,9 @@ from django.contrib.auth import login
 from django.contrib import messages
 from .forms import NewUserForm
 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 #FUNCIÓN REGISTER
 
@@ -28,11 +31,6 @@ def register_request(request):
 def index(request):
     return render(request, "gameseek_app/inicio.html")
 
-#ACERCA_DE
-
-def about(request):
-    return render(request, "gameseek_app/about.html")
-
 #CONTACTO
 
 def contact(request):
@@ -48,16 +46,30 @@ class ClientDetailView(DetailView):
     queryset = Client.objects.all()
     context_object_name = 'client'
 
-class ClientUpdateView(UpdateView):
+class ClientUpdateView(UserPassesTestMixin, UpdateView):
     queryset = Client.objects.all()
     fields = ['username', 'email', 'gender', 'language', 'birthday']
+    template_name="gameseek_app/client_form.html"
+    def test_func(self):
+        try:
+            return Client.objects.get(pk=self.request.user.pk)==Client.objects.get(pk=self.kwargs.get("pk"))
+        except:
+            return False
 
 class ClientCreateView(CreateView):
     model = Client
     form_class=NewUserForm
-class ClientDeleteView(DeleteView):
+    template_name="registration/register.html"
+
+class ClientDeleteView(UserPassesTestMixin, DeleteView):
     model = Client
     success_url = reverse_lazy('client-list')
+    template_name="gameseek_app/client_confirm_delete.html"
+    def test_func(self):
+        try:
+            return Client.objects.get(pk=self.request.user.pk)==Client.objects.get(pk=self.kwargs.get("pk"))
+        except:
+            return False
     
 #EVENTS
 
@@ -78,9 +90,14 @@ class EventDetailView(DetailView):
         context['now'] = timezone.now()
         return context
 
-class EventUpdateView(UpdateView):
+class EventUpdateView(UserPassesTestMixin, UpdateView):
     queryset = Event.objects.all()
     fields = ['name', 'date', 'limit_of_players', 'game', 'description', 'language']
+    def test_func(self):
+        try:
+            return Event.objects.get(pk=self.request.user.pk)==Event.objects.get(pk=self.kwargs.get("pk"))
+        except:
+            return False
 
 class EventCreateView(CreateView):
     model = Event

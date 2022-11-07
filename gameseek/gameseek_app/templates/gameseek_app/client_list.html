@@ -8,7 +8,7 @@
     <li><a href={% url 'client-detail' client.id %}>{{ client.username }} </a><a href={% url 'client-update' client.id %}>Editar  </a><a href={% url 'client-delete' client.id %}>Eliminar</a></li>
     {% endfor %}
     <br>
-    <button type="button" class="btn btn-dark" onclick="window.location.href='/clients/add/'">Añadir</button>
+    <button type="button" class="btn btn-dark" onclick="window.location.href='/register/'">Añadir</button>
     </ul>
     </section>
 {% endblock %}
