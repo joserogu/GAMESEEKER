@@ -5,9 +5,9 @@
 <section class="page-section portfolio" id="portfolio">
 <h2>Editar comunidad</h2>
     <ul>
-    <form method="POST" class="post-form">{% csrf_token %}
+    <form method="POST" class="post-form" enctype="multipart/form-data">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-dark">Guardar</button>
+        <button type="submit" href="/comunidades/" class="save btn btn-dark">Guardar</button>
     </form>
     </ul>
 </section>

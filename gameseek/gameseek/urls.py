@@ -18,6 +18,8 @@ from django.urls import path, include
 from django.views.generic.base import TemplateView
 from gameseek_app.views import *
 from gameseek_app import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 
@@ -58,4 +60,4 @@ urlpatterns = [
     path("juegos/add/", GameCreateView.as_view(), name='game-add'),
     path('juegos/<int:pk>/edit/', GameUpdateView.as_view(), name='game-update'),
     path('juegos/<int:pk>/delete/', GameDeleteView.as_view(), name='game-delete'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

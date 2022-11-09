@@ -42,9 +42,14 @@ def contact(request):
 class ClientListView(ListView):
     model = Client
 
-class ClientDetailView(DetailView):
+class ClientDetailView(UserPassesTestMixin, DetailView):
     queryset = Client.objects.all()
     context_object_name = 'client'
+    def test_func(self):
+        try:
+            return Client.objects.get(pk=self.request.user.pk)==Client.objects.get(pk=self.kwargs.get("pk"))
+        except:
+            return False
 
 class ClientUpdateView(UserPassesTestMixin, UpdateView):
     queryset = Client.objects.all()
@@ -99,13 +104,23 @@ class EventUpdateView(UserPassesTestMixin, UpdateView):
         except:
             return False
 
-class EventCreateView(CreateView):
+class EventCreateView(UserPassesTestMixin, CreateView):
     model = Event
     fields = ['name', 'date', 'limit_of_players', 'game', 'description', 'language']
+    def test_func(self):
+        try:
+            return Event.objects.get(pk=self.request.user.pk)==Event.objects.get(pk=self.kwargs.get("pk"))
+        except:
+            return False
 
-class EventDeleteView(DeleteView):
+class EventDeleteView(UserPassesTestMixin, DeleteView):
     model = Event
     success_url = reverse_lazy('event-list')
+    def test_func(self):
+        try:
+            return Event.objects.get(pk=self.request.user.pk)==Event.objects.get(pk=self.kwargs.get("pk"))
+        except:
+            return False
 
 #COMMUNITIES
 
@@ -117,15 +132,25 @@ class CommunityDetailView(DetailView):
 
 class CommunityUpdateView(UpdateView):
     queryset = Community.objects.all()
-    fields = ['name', 'description', 'game', 'number_of_players']    
+    fields = ['name', 'description', 'game', 'number_of_players', 'img'] 
+    def test_func(self):
+        try:
+            return Community.objects.get(pk=self.request.user.pk)==Community.objects.get(pk=self.kwargs.get("pk"))
+        except:
+            return False   
 
 class CommunityCreateView(CreateView):
     model = Community
-    fields = ['name', 'description', 'game', 'number_of_players']
+    fields = ['name', 'description', 'game', 'number_of_players', 'img']
 
 class CommunityDeleteView(DeleteView):
     model = Community
     success_url = reverse_lazy('community-list')
+    def test_func(self):
+        try:
+            return Community.objects.get(pk=self.request.user.pk)==Community.objects.get(pk=self.kwargs.get("pk"))
+        except:
+            return False  
 
 #GAMES
 

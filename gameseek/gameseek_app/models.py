@@ -66,6 +66,7 @@ class Community(models.Model):
     description = models.CharField(max_length = 1000)
     game = models.CharField(max_length = 100)
     number_of_players = models.PositiveBigIntegerField()
+    img = models.ImageField(upload_to='img/', null=True)
 
     #GET_ABSOLUTE_URL
 

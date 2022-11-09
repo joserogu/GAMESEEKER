@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Comunidades{% endblock %}
 
 {% block content %}
@@ -6,7 +7,59 @@
     <ul>
     <h2>Comunidades</h2>
     {% for community in object_list %}
-        <li><a href={% url 'community-detail' community.id %}>{{ community.name }} </a><a href={% url 'community-update' community.id %}>Editar  </a><a href={% url 'community-delete' community.id %}>Eliminar</a></li>
+            
+            <div class="col-md-6 col-lg-4 mb-5">
+                {% comment %} <a href="{% url 'client-list' %}{{ user.id }}"> {% endcomment %}
+                <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal{{ forloop.counter0 }}">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                    </div>
+                    {% if user.image %}
+                   <img src="/media/{{ user.image }}" alt="Log Cabin" style="height: 238px; 
+                   width: 100%; "/>
+                   {% else %}
+                   <img class="img-fluid" src="{% static 'assets/img/portfolio/cabin.png' %}" alt="Log Cabin" style="height: 238px; width: 100%; "/>
+                   {%endif %}
+                </div>
+            </div>
+            <div class="portfolio-modal modal fade" id="portfolioModal{{ forloop.counter0 }}" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal1Label" aria-hidden="true">
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content">
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fas fa-times"></i></span></button>
+                        <div class="modal-body text-center">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-8">
+                                        <!-- Portfolio Modal - Title-->
+                                        <h2 class="portfolio-modal-title text-secondary mb-0">Tasty Cake</h2>
+                                        <!-- Icon Divider-->
+                                        <div class="divider-custom">
+                                            <div class="divider-custom-line"></div>
+                                            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                            <div class="divider-custom-line"></div>
+                                        </div>
+                                        <!-- Portfolio Modal - Image-->{% if community.image %}
+                                                                            <img src="/media/{{ community.image }}" alt="Log Cabin" style="height: 240px; width: 100%; "/>
+                                                                        {% else %}
+                                                                            <img class="img-fluid" src="{% static 'assets/img/portfolio/cabin.png' %}" alt="Log Cabin"/>
+                                                                        {%endif %}
+                                        <!-- Portfolio Modal - Text-->
+                                        <br>
+                                        <p class="mb-5"><h2></h2>
+                                            <ul>
+                                                <li style="list-style: none"><b>Nombre:</b> {{ community.name }}</li>
+                                                <li style="list-style: none"><b>Descripción:</b> {{ community.description }}</li>
+                                                <li style="list-style: none"><b>Juego:</b> {{ community.game }}</li>
+                                                <li style="list-style: none"><b>Jugadores:</b> {{ community.number_of_players }}</li>
+                                            </ul></p>
+                                        <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close Window</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     {% endfor %}
     <br>
     <button type="button" class="btn btn-dark" onclick="window.location.href='/comunidades/add/'">Añadir</button>
