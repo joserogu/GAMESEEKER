@@ -1,5 +1,5 @@
 from gameseek_app.models import *
-from rest_framework import routers,serializers, viewsets
+from rest_framework import routers, serializers, viewsets
 
 # Cliente
 
@@ -47,7 +47,7 @@ class GameViewSet(viewsets.ModelViewSet):
 
 #REGISTER
 api = routers.DefaultRouter()
-api.register(r'clientes', ClientViewSet)
-api.register(r'eventos', EventViewSet)
-api.register(r'comunidades', CommunityViewSet)
-api.register(r'juegos', GameViewSet)
+api.register(r'cliente', ClientViewSet)
+api.register(r'evento', EventViewSet)
+api.register(r'comunidad', CommunityViewSet)
+api.register(r'juego', GameViewSet)
