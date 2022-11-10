@@ -8,20 +8,20 @@
     <h2>Comunidades</h2>
     {% for community in object_list %}
             
-            <div class="col-md-6 col-lg-4 mb-5">
-                {% comment %} <a href="{% url 'client-list' %}{{ user.id }}"> {% endcomment %}
-                <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal{{ forloop.counter0 }}">
-                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                    </div>
-                    {% if user.image %}
-                   <img src="/media/{{ user.image }}" alt="Log Cabin" style="height: 238px; 
-                   width: 100%; "/>
-                   {% else %}
-                   <img class="img-fluid" src="{% static 'assets/img/portfolio/cabin.png' %}" alt="Log Cabin" style="height: 238px; width: 100%; "/>
-                   {%endif %}
+        <div class="col-md-6 col-lg-4 mb-5">
+            {% comment %} <a href="{% url 'client-list' %}{{ user.id }}"> {% endcomment %}
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal{{ forloop.counter0 }}">
+                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                    <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                 </div>
+                {% if user.img %}
+            <img src="/media/{{ user.image }}" alt="Log Cabin" style="height: 238px; 
+            width: 100%; "/>
+            {% else %}
+            <img class="img-fluid" src="/media/{{ community.img }}" alt="Log Cabin" style="height: 238px; width: 100%; "/>
+            {%endif %}
             </div>
+        </div>
             <div class="portfolio-modal modal fade" id="portfolioModal{{ forloop.counter0 }}" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal1Label" aria-hidden="true">
                 <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
@@ -38,10 +38,10 @@
                                             <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                             <div class="divider-custom-line"></div>
                                         </div>
-                                        <!-- Portfolio Modal - Image-->{% if community.image %}
-                                                                            <img src="/media/{{ community.image }}" alt="Log Cabin" style="height: 240px; width: 100%; "/>
+                                        <!-- Portfolio Modal - Image-->{% if community.img %}
+                                                                            <img src="/media/{{ community.img }}" alt="Log Cabin" style="height: 200px; width: 50%; "/>
                                                                         {% else %}
-                                                                            <img class="img-fluid" src="{% static 'assets/img/portfolio/cabin.png' %}" alt="Log Cabin"/>
+                                                                            <img class="img-fluid" src="/media/{{ community.img }}" alt="Log Cabin"/>
                                                                         {%endif %}
                                         <!-- Portfolio Modal - Text-->
                                         <br>
