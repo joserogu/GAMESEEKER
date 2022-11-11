@@ -7,7 +7,7 @@
     <h2>Editar cliente</h2>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-dark">Guardar</button>
+        <button type="submit" class="save btn btn-dark" href ={% url 'clients-detail' %}>Guardar</button>
     </form>
     </ul>
     </section>

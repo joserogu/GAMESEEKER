@@ -7,7 +7,7 @@
     <ul>
     <form method="POST" class="post-form" enctype="multipart/form-data">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" href="/comunidades/" class="save btn btn-dark">Guardar</button>
+        <button type="submit" href={% url 'communitys-list' %} class="save btn btn-dark">Guardar</button>
     </form>
     </ul>
 </section>
