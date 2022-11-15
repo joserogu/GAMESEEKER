@@ -74,7 +74,7 @@ class ClientCreateView(CreateView):
 
 class ClientDeleteView(UserPassesTestMixin, DeleteView):
     model = Client
-    success_url = reverse_lazy('client-list')
+    success_url = reverse_lazy('gmsk:client-list')
     template_name="gameseek_app/client_confirm_delete.html"
     def test_func(self):
         try:
@@ -120,7 +120,7 @@ class EventCreateView(UserPassesTestMixin, CreateView):
 
 class EventDeleteView(UserPassesTestMixin, DeleteView):
     model = Event
-    success_url = reverse_lazy('event-list')
+    success_url = reverse_lazy('gmsk:event-list')
     def test_func(self):
         try:
             return Event.objects.get(pk=self.request.user.pk)==Event.objects.get(pk=self.kwargs.get("pk"))
@@ -150,7 +150,7 @@ class CommunityCreateView(CreateView):
 
 class CommunityDeleteView(DeleteView):
     model = Community
-    success_url = reverse_lazy('community-list')
+    success_url = reverse_lazy('gmsk:community-list')
     def test_func(self):
         try:
             return Community.objects.get(pk=self.request.user.pk)==Community.objects.get(pk=self.kwargs.get("pk"))
@@ -176,4 +176,4 @@ class GameCreateView(CreateView):
 
 class GameDeleteView(DeleteView):
     model = Game
-    success_url = reverse_lazy('games-list')
+    success_url = reverse_lazy('gmsk:games-list')
