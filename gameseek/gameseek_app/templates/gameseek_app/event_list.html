@@ -6,7 +6,7 @@
     <ul>
     <h2>Eventos</h2>
     {% for event in object_list %}
-        <li><a href={% url 'events-detail' event.id %}>{{ events.name }} </a><a href={% url 'event-update' event.id %}>Editar  </a><a href={% url 'event-delete' event.id %}>Eliminar</a></li>
+        <li><a href={% url 'gmsk:events-detail' event.id %}>{{ event.name }} </a><a href={% url 'gmsk:events-update' event.id %}>Editar  </a><a href={% url 'gmsk:events-delete' event.id %}>Eliminar</a></li>
     {% endfor %}
     <br>
     <button type="button" class="btn btn-dark" onclick="window.location.href='/eventos/add/'">Añadir</button>

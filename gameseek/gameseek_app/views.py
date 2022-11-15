@@ -1,5 +1,4 @@
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import render, redirect
 from django.views.generic import *
 from django.urls import reverse_lazy
 from django.utils import timezone
@@ -11,6 +10,13 @@ from .forms import NewUserForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import UserPassesTestMixin
+
+from django.contrib.auth.forms import AuthenticationForm
+
+#DEFAULT VIEW
+
+class DefaultView(TemplateView):
+    template_name="gameseek_app/inicio.html"
 
 #FUNCIÓN REGISTER
 
@@ -80,7 +86,6 @@ class ClientDeleteView(UserPassesTestMixin, DeleteView):
 
 class EventListView(ListView):
     model = Event
-    paginate_by = 100  # if pagination is desired
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -159,6 +164,7 @@ class GameListView(ListView):
 
 class GameDetailView(DetailView):
     queryset = Game.objects.all()
+    template_name = "gameseek_app/game_detail.html"
 
 class GameUpdateView(UpdateView):
     queryset = Game.objects.all()
@@ -170,4 +176,4 @@ class GameCreateView(CreateView):
 
 class GameDeleteView(DeleteView):
     model = Game
-    success_url = reverse_lazy('game-list')
+    success_url = reverse_lazy('games-list')
