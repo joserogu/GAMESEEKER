@@ -109,14 +109,10 @@ class EventUpdateView(UserPassesTestMixin, UpdateView):
         except:
             return False
 
-class EventCreateView(UserPassesTestMixin, CreateView):
+class EventCreateView(CreateView):
     model = Event
     fields = ['name', 'date', 'limit_of_players', 'game', 'description', 'language']
-    def test_func(self):
-        try:
-            return Event.objects.get(pk=self.request.user.pk)==Event.objects.get(pk=self.kwargs.get("pk"))
-        except:
-            return False
+    
 
 class EventDeleteView(UserPassesTestMixin, DeleteView):
     model = Event
