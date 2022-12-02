@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'rest_framework',
     'django.contrib.admin',
-    'django.contrib.auth',   
+    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -123,15 +123,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATICFILES_DIRS=[
+    BASE_DIR / "static",
+    '/var/www/GAMESEEKER/gameseek/static/',
+]
 
 import os
 
-STATICFILES_DIRS=[
-    BASE_DIR / "static"
-]
+#STATIC RUTES
 
-STATIC_ROOT = 'static/'
+STATIC_URL = 'static/'
+#STATIC_ROOT = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+#MEDIA RUTES
+
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 

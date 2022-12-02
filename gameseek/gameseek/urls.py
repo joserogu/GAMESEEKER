@@ -21,7 +21,6 @@ from django.conf.urls.static import static
 from django.conf import settings
 from gameseek_app.api import *
 
-
 urlpatterns = [
     path('', include(('gameseek_app.urls','gmsk'),namespace="gmsk")),
     path('contacto/', contact),
