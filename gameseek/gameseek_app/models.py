@@ -17,7 +17,8 @@ class Client(AbstractUser):
         HOMBRE = "HOMBRE", _("Hombre")
         MUJER = "MUJER", _("Mujer")
         OTRO = "OTRO", _("Otro")
-
+    username = models.CharField(max_length=50, unique=True, null=False, blank=False)
+    email = models.EmailField(max_length = 254, unique=True, null=False, blank=False)
     gender = models.CharField(
         max_length = 7,
         choices=Gender.choices,
@@ -42,10 +43,10 @@ class Event(models.Model):
     
     #Atributos
 
-    name = models.CharField(max_length = 100)
-    date = models.DateTimeField()
-    limit_of_players = models.PositiveBigIntegerField()
-    game = models.CharField(max_length = 100)
+    name = models.CharField(max_length = 100, unique=True, null=False, blank=False)
+    date = models.DateTimeField(default='YYYY-MM-DD HH-MM-SS', null=False, blank=False)
+    limit_of_players = models.PositiveBigIntegerField(null=False, blank=False)
+    game = models.CharField(max_length = 100, null=False, blank=False)
     description = models.CharField(max_length = 1000)
     language = models.CharField(max_length = 100)
 
@@ -63,10 +64,10 @@ class Community(models.Model):
     
     #Atributos
 
-    name = models.CharField(max_length = 100)
+    name = models.CharField(max_length = 100, unique=True, null=False, blank=False)
     description = models.CharField(max_length = 1000)
-    game = models.CharField(max_length = 100)
-    number_of_players = models.PositiveBigIntegerField()
+    game = models.CharField(max_length = 100, null=False, blank=False)
+    number_of_players = models.PositiveBigIntegerField(null=False, blank=False)
     img = models.ImageField(upload_to='img/', null=True)
 
     #GET_ABSOLUTE_URL
@@ -83,9 +84,9 @@ class Game(models.Model):
     
     #Atributos
     
-    name = models.CharField(max_length = 100)
+    name = models.CharField(max_length = 100, unique=True, null=False, blank=False)
     description = models.CharField(max_length = 1000)
-    category = models.CharField(max_length = 100)
+    category = models.CharField(max_length = 100, null=False, blank=False)
     
     #GET_ABSOLUTE_URL
 

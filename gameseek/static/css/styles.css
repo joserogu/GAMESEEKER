@@ -39,6 +39,10 @@
 *::after {
   box-sizing: border-box; }
 
+.text-center {
+  text-align: center;
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -4241,6 +4245,7 @@ a.close.disabled {
 .modal-body {
   position: relative;
   flex: 1 1 auto;
+  font-size: smaller;
   padding: 4rem 1rem; }
 
 .modal-footer {
@@ -7389,7 +7394,8 @@ form .row:first-child .floating-label-form-group {
 .portfolio {
   padding-top: 12rem;
   padding-bottom: 4.5rem; 
-  margin-left: 50px;}
+  margin-left: 50px;
+  margin-right: 50px;}
 
 .page-section-heading {
   display: inline-block; }
