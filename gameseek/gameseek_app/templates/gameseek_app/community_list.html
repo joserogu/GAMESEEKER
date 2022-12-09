@@ -4,24 +4,36 @@
 
 {% block content %}
 <section class="page-section portfolio" id="portfolio">
-    <ul>
-    <h2>Comunidades</h2>
-    {% for community in object_list %}
-            
-        <div class="col-md-6 col-lg-4 mb-5">
-            {% comment %} <a href="{% url 'client-list' %}{{ user.id }}"> {% endcomment %}
-            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal{{ forloop.counter0 }}">
-                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                    <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                </div>
-                {% if user.img %}
-            <img src="/media/{{ user.image }}" alt="Log Cabin" style="height: 238px; 
-            width: 100%; "/>
-            {% else %}
-            <img class="img-fluid" src="/media/{{ community.img }}" alt="Log Cabin" style="height: 238px; width: 100%; "/>
-            {%endif %}
-            </div>
+    <div class="container">
+        <!-- Portfolio Section Heading-->
+        <div class="text-center">
+            <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Comunidades</h2>
         </div>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Portfolio Grid Items-->
+        <div class="row justify-content-center">
+            <!-- Portfolio Items-->
+            {% for community in object_list %}
+            
+            <div class="col-md-6 col-lg-4 mb-5">
+                {% comment %} <a href="{% url 'client-list' %}{{ user.id }}"> {% endcomment %}
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal{{ forloop.counter0 }}">
+                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        {% if user.img %}
+                    <img src="/media/{{ user.image }}" alt="Log Cabin" style="height: 238px; 
+                    width: 100%; "/>
+                    {% else %}
+                    <img class="img-fluid" src="/media/{{ community.img }}" alt="Log Cabin" style="height: 238px; width: 100%; "/>
+                    {%endif %}
+                    </div>
+            </div>
             <div class="portfolio-modal modal fade" id="portfolioModal{{ forloop.counter0 }}" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal1Label" aria-hidden="true">
                 <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
@@ -45,7 +57,7 @@
                                                                         {%endif %}
                                         <!-- Portfolio Modal - Text-->
                                         <br>
-                                        <p class="mb-5"><h2></h2>
+                                        <p class="mb-5">
                                             <ul>
                                                 <li style="list-style: none"><b>Nombre:</b> {{ community.name }}</li>
                                                 <li style="list-style: none"><b>Descripción:</b> {{ community.description }}</li>
@@ -60,9 +72,14 @@
                     </div>
                 </div>
             </div>
-    {% endfor %}
-    <br>
+            {% endfor %}
+        </div>
+    </div>
+    {% if user.is_authenticated %}
     <button type="button" class="btn btn-dark" onclick="window.location.href='/comunidades/add/'">Añadir</button>
-</ul>
+        {% else %}
+    <p>Logueate para añadir comunidades!!</p>
+    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href={% url 'login' %}>Login</a>
+    {% endif %}
 </section>
 {% endblock %}
