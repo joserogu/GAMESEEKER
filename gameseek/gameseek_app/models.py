@@ -50,10 +50,6 @@ class Event(models.Model):
     description = models.CharField(max_length = 1000)
     language = models.CharField(max_length = 100)
 
-    #RELACIÓN
-
-    user = models.OneToOneField(Client, on_delete=models.CASCADE, primary_key=True)
-
     #GET_ABSOLUTE_URL
 
     def get_absolute_url(self):
@@ -73,10 +69,6 @@ class Community(models.Model):
     game = models.CharField(max_length = 100, null=False, blank=False)
     number_of_players = models.PositiveBigIntegerField(null=False, blank=False)
     img = models.ImageField(upload_to='img/', null=True)
-
-    #RELACIÓN
-
-    user = models.OneToOneField(Client, on_delete=models.CASCADE, primary_key=True)
 
     #GET_ABSOLUTE_URL
 

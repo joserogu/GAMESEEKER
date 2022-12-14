@@ -4,6 +4,7 @@
 {% block content %}
     <section class="page-section portfolio" id="portfolio">
     <h2>Clientes</h2>
+    {% if request.user.is_superuser %}
     {% for client in object_list %}
     <li><a href={% url 'gmsk:clients-detail' client.id %}>{{ client.username }} </a><a href={% url 'gmsk:clients-update' client.id %}>Editar  </a><a href={% url 'gmsk:clients-delete' client.id %}>Eliminar</a></li>
     {% endfor %}
@@ -12,5 +13,8 @@
     <button type="button" class="btn btn-dark" onclick="window.location.href='/register/'">Añadir</button>
     {% endif %}
     </ul>
+        {% else %}
+    <p>NO ESTÁ DISPONIBLE</p>
+    {% endif %}
     </section>
 {% endblock %}

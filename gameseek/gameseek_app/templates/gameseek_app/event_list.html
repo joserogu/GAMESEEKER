@@ -36,8 +36,8 @@
     {% if user.is_authenticated %}
     <button type="button" class="btn btn-dark" onclick="window.location.href='/eventos/add/'">Añadir</button>
       {% else %}
-      <p>Logueate para crear eventos</p>
-      <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href={% url 'login' %}>Login</a>
+      <p>LOGUEATE PARA CREAR EVENTOS!!</p>
+      <button type="button" class="btn btn-dark"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href={% url 'login' %}>Login</a></button>
     {% endif %}
 </ul>
 </section>
