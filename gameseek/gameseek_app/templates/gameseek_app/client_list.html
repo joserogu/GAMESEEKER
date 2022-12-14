@@ -8,7 +8,9 @@
     <li><a href={% url 'gmsk:clients-detail' client.id %}>{{ client.username }} </a><a href={% url 'gmsk:clients-update' client.id %}>Editar  </a><a href={% url 'gmsk:clients-delete' client.id %}>Eliminar</a></li>
     {% endfor %}
     <br>
+    {% if request.user.is_authenticated %}
     <button type="button" class="btn btn-dark" onclick="window.location.href='/register/'">Añadir</button>
+    {% endif %}
     </ul>
     </section>
 {% endblock %}

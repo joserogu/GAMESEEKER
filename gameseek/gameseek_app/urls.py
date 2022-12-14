@@ -7,6 +7,7 @@ from django.conf import settings
 
 urlpatterns = [ 
     path('', DefaultView.as_view(), name="home"),
+    path('comunidades/search/', search.as_view(), name="search"),
     
     #CLIENTES
     

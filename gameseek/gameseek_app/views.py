@@ -6,6 +6,7 @@ from gameseek_app.models import *
 from django.contrib.auth import login
 from django.contrib import messages
 from .forms import NewUserForm
+from django.db.models import Q
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -17,6 +18,14 @@ from django.contrib.auth.forms import AuthenticationForm
 
 class DefaultView(TemplateView):
     template_name="gameseek_app/inicio.html"
+
+class search(ListView):
+    model = Community
+    template_name="gameseek_app/search.html"
+    def get_queryset(self):
+        query = self.request.GET.get("q")
+        object_list=Community.objects.filter(Q(name__in=[query]))
+        return object_list
 
 #FUNCIÓN REGISTER
 
@@ -112,7 +121,6 @@ class EventUpdateView(UserPassesTestMixin, UpdateView):
 class EventCreateView(CreateView):
     model = Event
     fields = ['name', 'date', 'limit_of_players', 'game', 'description', 'language']
-    
 
 class EventDeleteView(UserPassesTestMixin, DeleteView):
     model = Event

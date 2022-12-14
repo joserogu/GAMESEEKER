@@ -15,11 +15,6 @@
             <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
             <div class="divider-custom-line"></div>
         </div>
-        <div class="container container-fluid  justify-content-center w-100 p-3">
-            <form class="form-inline justify-content-center" action="{% url 'gmsk:search' %}" method="get" >
-                <input name="q" type="text" placeholder="Search...">
-            </form>
-        </div>
         <!-- Portfolio Grid Items-->
         <div class="row justify-content-center">
             <!-- Portfolio Items-->
@@ -48,7 +43,7 @@
                                 <div class="row justify-content-center">
                                     <div class="col-lg-8">
                                         <!-- Portfolio Modal - Title-->
-                                        <h2 class="portfolio-modal-title text-secondary mb-0">{{ community.name }}</h2>
+                                        <h2 class="portfolio-modal-title text-secondary mb-0">Tasty Cake</h2>
                                         <!-- Icon Divider-->
                                         <div class="divider-custom">
                                             <div class="divider-custom-line"></div>
@@ -77,14 +72,9 @@
                     </div>
                 </div>
             </div>
+            
             {% endfor %}
         </div>
     </div>
-    {% if user.is_authenticated %}
-    <button type="button" class="btn btn-dark" onclick="window.location.href='/comunidades/add/'">Añadir</button>
-        {% else %}
-    <p>Logueate para añadir comunidades!!</p>
-    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href={% url 'login' %}>Login</a>
-    {% endif %}
 </section>
 {% endblock %}

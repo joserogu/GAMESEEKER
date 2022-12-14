@@ -9,7 +9,10 @@
         <li><a href={% url 'gmsk:games-detail' game.id %}>{{ game.name }} </a><a href={% url 'gmsk:games-update' game.id %}>Editar  </a><a href={% url 'gmsk:games-delete' game.id %}>Eliminar</a></li>
     {% endfor %}
     <br>
+    {% if request.user.is_superuser %}
     <button type="button" class="btn btn-dark" onclick="window.location.href='/juegos/add/'">Añadir</button>
+    {% endif %}
+
 </ul>
 </section>
 {% endblock %}
