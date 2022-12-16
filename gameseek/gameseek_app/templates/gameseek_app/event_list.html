@@ -5,18 +5,18 @@
 <section class="page-section portfolio" id="portfolio">
     <ul>
     <h2>Eventos</h2>
-    <div id="accordion">
     {% for event in object_list %}
+    <div id="accordion">
         <div class="card">
           <div class="card-header" id="headingOne">
             <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse{{ forloop.counter0 }}" aria-expanded="true" aria-controls="collapseOne">
                 {{ event.name }}
               </button>
             </h5>
           </div>
       
-          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+          <div id="collapse{{ forloop.counter0 }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
               <ul>
                 <li class="wevo" style="list-style: none"><b>Descripción:</b> {{ event.description }}</li>
@@ -30,8 +30,8 @@
       
       <br> 
     <!-- <li><a href={% url 'gmsk:events-detail' event.id %}>{{ event.name }} </a><a href={% url 'gmsk:events-update' event.id %}>Editar  </a><a href={% url 'gmsk:events-delete' event.id %}>Eliminar</a></li> -->
-    {% endfor %}
-    </div>   
+    </div>  
+    {% endfor %} 
     <br>
     {% if user.is_authenticated %}
     <button type="button" class="btn btn-dark" onclick="window.location.href='/eventos/add/'">Añadir</button>
