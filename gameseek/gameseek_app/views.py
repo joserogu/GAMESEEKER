@@ -68,7 +68,7 @@ class ClientDetailView(UserPassesTestMixin, DetailView):
 
 class ClientUpdateView(UserPassesTestMixin, UpdateView):
     queryset = Client.objects.all()
-    fields = ['username', 'email', 'gender', 'language', 'birthday']
+    fields = ['username', 'email', 'gender', 'language', 'birthday', 'cargo']
     template_name="gameseek_app/client_form.html"
     def test_func(self):
         try:
@@ -111,7 +111,7 @@ class EventDetailView(DetailView):
 
 class EventUpdateView(UserPassesTestMixin, UpdateView):
     queryset = Event.objects.all()
-    fields = ['name', 'date', 'limit_of_players', 'game', 'description', 'language']
+    fields = ['name', 'date', 'limit_of_players', 'game', 'description', 'language','comunidad']
     def test_func(self):
         try:
             return Event.objects.get(pk=self.request.user.pk)==Event.objects.get(pk=self.kwargs.get("pk"))
@@ -120,7 +120,7 @@ class EventUpdateView(UserPassesTestMixin, UpdateView):
 
 class EventCreateView(CreateView):
     model = Event
-    fields = ['name', 'date', 'limit_of_players', 'game', 'description', 'language']
+    fields = ['name', 'date', 'limit_of_players', 'game', 'description', 'language', 'comunidad']
 
 class EventDeleteView(UserPassesTestMixin, DeleteView):
     model = Event
@@ -141,7 +141,7 @@ class CommunityDetailView(DetailView):
 
 class CommunityUpdateView(UpdateView):
     queryset = Community.objects.all()
-    fields = ['name', 'description', 'game', 'number_of_players', 'img'] 
+    fields = ['name', 'description', 'number_of_players', 'img', 'juegos'] 
     def test_func(self):
         try:
             return Community.objects.get(pk=self.request.user.pk)==Community.objects.get(pk=self.kwargs.get("pk"))
@@ -150,7 +150,7 @@ class CommunityUpdateView(UpdateView):
 
 class CommunityCreateView(CreateView):
     model = Community
-    fields = ['name', 'description', 'game', 'number_of_players', 'img']
+    fields = ['name', 'description', 'number_of_players', 'img', 'juegos']
 
 class CommunityDeleteView(DeleteView):
     model = Community

@@ -17,7 +17,7 @@ from rest_framework.views import APIView
 class ClientSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Client
-        fields = ['username', 'email', 'gender', 'language', 'birthday']
+        fields = ['username', 'email', 'gender', 'language', 'birthday', 'cargo']
 
 class ClientViewSet(viewsets.ModelViewSet):
     queryset = Client.objects.all()

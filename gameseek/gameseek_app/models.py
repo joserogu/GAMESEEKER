@@ -24,9 +24,21 @@ class Client(AbstractUser):
         choices=Gender.choices,
         default=Gender.VACIO,
     )
+    
     language = models.CharField(max_length = 100, null=True)
     birthday = models.DateField(null=True)
 
+    class Cargo(models.TextChoices):
+        Standard = "STANDARD", _("Standard")
+        Moderator = "MODERATOR", _("Moderator")
+        Staff = "STAFF", _("Staff")
+
+    cargo = models.CharField(
+        max_length = 10,
+        choices = Cargo.choices,
+        default = Cargo.Standard,
+    )
+    
     #GET_ABSOLUTE_URL
 
     def get_absolute_url(self):
@@ -34,49 +46,6 @@ class Client(AbstractUser):
     
     def __str__(self):
         return self.username 
-
-
-
-#EVENTOS
-
-class Event(models.Model):
-    
-    #Atributos
-
-    name = models.CharField(max_length = 100, unique=True, null=False, blank=False)
-    date = models.DateTimeField(default='YYYY-MM-DD HH-MM-SS', null=False, blank=False)
-    limit_of_players = models.PositiveBigIntegerField(null=False, blank=False)
-    game = models.CharField(max_length = 100, null=False, blank=False)
-    description = models.CharField(max_length = 1000)
-    language = models.CharField(max_length = 100)
-
-    #GET_ABSOLUTE_URL
-
-    def get_absolute_url(self):
-        return reverse("gmsk:events-detail", kwargs={"pk": self.pk})
-
-    def __str__(self) -> str:
-        return self.name
-
-#COMUNIDAD
-
-class Community(models.Model):
-    
-    #Atributos
-
-    name = models.CharField(max_length = 100, unique=True, null=False, blank=False)
-    description = models.CharField(max_length = 1000)
-    game = models.CharField(max_length = 100, null=False, blank=False)
-    number_of_players = models.PositiveBigIntegerField(null=False, blank=False)
-    img = models.ImageField(upload_to='img/', null=True)
-
-    #GET_ABSOLUTE_URL
-
-    def get_absolute_url(self):
-        return reverse("gmsk:communitys-detail", kwargs={"pk": self.pk})
-
-    def __str__(self) -> str:
-        return self.name
 
 #JUEGOS
 
@@ -95,6 +64,66 @@ class Game(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+#COMUNIDAD
+
+class Community(models.Model):
+    
+    #Atributos
+
+    name = models.CharField(max_length = 100, unique=True, null=False, blank=False)
+    description = models.CharField(max_length = 1000)
+    number_of_players = models.PositiveBigIntegerField(null=False, blank=False)
+    img = models.ImageField(upload_to='img/', null=True)
+
+    #RELACIÓN
+    
+    juegos = models.ForeignKey(Game, on_delete=models.CASCADE, blank=True, null=True)
+    
+    #GET_ABSOLUTE_URL
+
+    def get_absolute_url(self):
+        return reverse("gmsk:communitys-detail", kwargs={"pk": self.pk})
+
+    def __str__(self) -> str:
+        return self.name
+
+from datetime import datetime
+
+class Ingresos(models.Model):
+    
+    #RELACIÓN
+    
+    cliente = models.ForeignKey(Community, on_delete=models.CASCADE, blank=True, null=True)
+    comunidad = models.ForeignKey(Client, on_delete=models.CASCADE, blank=True, null=True)
+    fecha_ingreso = models.DateField(default=datetime.now)
+
+#EVENTOS
+
+class Event(models.Model):
+    
+    #Atributos
+
+    name = models.CharField(max_length = 100, unique=True, null=False, blank=False)
+    date = models.DateTimeField(default='YYYY-MM-DD', null=False, blank=False)
+    limit_of_players = models.PositiveBigIntegerField(null=False, blank=False)
+    game = models.CharField(max_length = 100, null=False, blank=False)
+    description = models.CharField(max_length = 1000)
+    language = models.CharField(max_length = 100)
+    
+    #RELACIÓN
+    
+    comunidad = models.ForeignKey(Community, on_delete=models.CASCADE, blank=True, null=True)
+
+    #GET_ABSOLUTE_URL
+
+    def get_absolute_url(self):
+        return reverse("gmsk:events-detail", kwargs={"pk": self.pk})
+
+    def __str__(self) -> str:
+        return self.name
+
+
 
 
 
