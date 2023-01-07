@@ -79,6 +79,7 @@ class Community(models.Model):
     #RELACIÓN
     
     juegos = models.ForeignKey(Game, on_delete=models.CASCADE, blank=True, null=True)
+    cliente = models.ManyToManyField(Client)
     
     #GET_ABSOLUTE_URL
 
@@ -87,16 +88,6 @@ class Community(models.Model):
 
     def __str__(self) -> str:
         return self.name
-
-from datetime import datetime
-
-class Ingresos(models.Model):
-    
-    #RELACIÓN
-    
-    cliente = models.ForeignKey(Community, on_delete=models.CASCADE, blank=True, null=True)
-    comunidad = models.ForeignKey(Client, on_delete=models.CASCADE, blank=True, null=True)
-    fecha_ingreso = models.DateField(default=datetime.now)
 
 #EVENTOS
 
