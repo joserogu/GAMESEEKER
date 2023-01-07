@@ -39,6 +39,13 @@
 *::after {
   box-sizing: border-box; }
 
+#listilla {
+  overflow:hidden; 
+  overflow-y:scroll;
+  width: 250px;
+  height: 86px;
+}
+
 .text-center {
   text-align: center;
 }
@@ -95,7 +102,8 @@ ol,
 ul,
 dl {
   margin-top: 0;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem; 
+  word-wrap: break-word;}
 
 ol ol,
 ul ul,

@@ -118,7 +118,7 @@ class EventDetailView(DetailView):
 
 class EventUpdateView(UserPassesTestMixin, UpdateView):
     queryset = Event.objects.all()
-    fields = ['name', 'date', 'limit_of_players', 'game', 'description', 'language','comunidad']
+    fields = ['name', 'date', 'limit_of_players', 'description', 'language','comunidad']
     def test_func(self):
         try:
             return Event.objects.get(pk=self.request.user.pk)==Event.objects.get(pk=self.kwargs.get("pk"))
@@ -127,7 +127,7 @@ class EventUpdateView(UserPassesTestMixin, UpdateView):
 
 class EventCreateView(CreateView):
     model = Event
-    fields = ['name', 'date', 'limit_of_players', 'game', 'description', 'language', 'comunidad']
+    fields = ['name', 'date', 'limit_of_players', 'description', 'language', 'comunidad']
 
 class EventDeleteView(UserPassesTestMixin, DeleteView):
     model = Event

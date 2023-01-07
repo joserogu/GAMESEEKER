@@ -98,7 +98,6 @@ class Event(models.Model):
     name = models.CharField(max_length = 100, unique=True, null=False, blank=False)
     date = models.DateTimeField(default='YYYY-MM-DD', null=False, blank=False)
     limit_of_players = models.PositiveBigIntegerField(null=False, blank=False)
-    game = models.CharField(max_length = 100, null=False, blank=False)
     description = models.CharField(max_length = 1000)
     language = models.CharField(max_length = 100)
     

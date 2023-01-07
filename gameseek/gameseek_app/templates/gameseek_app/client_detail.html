@@ -4,16 +4,19 @@
 {% block content %}
     <section class="page-section portfolio" id="portfolio">
         <h2>{{ object.username }}</h2>
-        <ul>
+        <ul id="sobresale">
         <li style="list-style: none"><b>Correo:</b> {{ object.email }}</li>
         <li style="list-style: none"><b>Género:</b> {{ object.gender }}</li>
         <li style="list-style: none"><b>Idioma:</b> {{ object.language }}</li>
         <li style="list-style: none"><b>Cumpleaños:</b> {{ object.birthday }}</li>
         <br> 
+        
         <li style="list-style: none"><b>Comunidades:</b></li>
+        <ul id="listilla">
         {% for comunidad in comunidades %}
-        <li style="list-style: none">{{ comunidad }}</li>
+            <li style="list-style: none">{{ comunidad }}</li>
         {% endfor %}
+        </ul>
         <br>
         <button type="button" class="btn btn-dark" onclick="window.location.href='edit/'">Editar</button>
         <button type="button" class="btn btn-dark" onclick="window.location.href='delete/'">Eliminar</button>
