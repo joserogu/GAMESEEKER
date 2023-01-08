@@ -46,6 +46,12 @@
   height: 86px;
 }
 
+ul#jugadores {
+  position: relative;
+  right: -41cm;
+  top: -2cm;
+}
+
 .text-center {
   text-align: center;
 }

@@ -5,14 +5,18 @@
 <section class="page-section portfolio" id="portfolio">
     <ul>
     <h2>{{ object.name }}</h2>
-    <li style="list-style: none"><b>Juego:</b> {{ object.game }}</li>
+    <li style="list-style: none"><b>Juego:</b> {{ object.juegos }}</li>
     <li style="list-style: none"><b>Número de jugadores:</b> {{ object.number_of_players }}</li>
     <li style="list-style: none"><b>Descripción:</b> {{ object.description }}</li>    
     <br>
-    <li style="list-style: none"><b>Jugadores:</b></li>
+    <ul id="jugadores">
+        <li style="list-style: none"><b>Jugadores:</b></li>
+        <ul id="listilla">
     {% for persona in object.cliente.all %}
     <li style="list-style: none">{{ persona }}</li>
     {% endfor %}
+    </ul>
+    </ul>
     <br>
     {% if request.user.is_authenticated %}    
     <button type="button" class="btn btn-dark" onclick="window.location.href='edit/'">Editar</button>
