@@ -17,6 +17,15 @@
     {% endfor %}
     </ul>
     </ul>
+
+    <h3>Eventos disponibles:</h3>
+
+    {% for evento in eventos %}
+            <li style="list-style: none">{{ evento.name }}</li>
+    {% empty %}
+    <li style="list-style: none"><b>No se encuentra ningún evento disponible</b></li>
+    {% endfor %}
+    <br>
     <br>
     {% if request.user.is_authenticated %}    
     <button type="button" class="btn btn-dark" onclick="window.location.href='edit/'">Editar</button>

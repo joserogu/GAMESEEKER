@@ -105,7 +105,7 @@ class EventListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['comunidades']=Event.objects.get(pk=self.request.user.pk)
+        context['comunidades']=Community.objects.get(pk=self.request.user.pk)
         return context
 
     def get_context_data(self, **kwargs):
@@ -149,12 +149,17 @@ class CommunityListView(ListView):
     model = Community
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['clientes']=Community.objects.filter(cliente=self.request.user.pk)
+        context['clientes']=Client.objects.filter(pk=self.request.user.pk)
         return context
     
 
 class CommunityDetailView(LoginRequiredMixin, DetailView):
     queryset = Community.objects.all()
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['eventos']=Event.objects.filter(comunidad=self.kwargs.get("pk"))
+        return context
 
 class CommunityUpdateView(LoginRequiredMixin, UpdateView):
     queryset = Community.objects.all()
