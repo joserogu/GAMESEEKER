@@ -82,7 +82,7 @@ class ClientUpdateView(UserPassesTestMixin, UpdateView):
         except:
             return False
 
-class ClientCreateView(CreateView):
+class ClientCreateView(LoginRequiredMixin, CreateView):
     model = Client
     form_class=NewUserForm
     template_name="registration/register.html"
@@ -113,7 +113,7 @@ class EventListView(ListView):
         context['now'] = timezone.now()
         return context
 
-class EventDetailView(DetailView):
+class EventDetailView(LoginRequiredMixin, DetailView):
     model = Event
     
     def get_context_data(self, **kwargs):
@@ -130,7 +130,7 @@ class EventUpdateView(UserPassesTestMixin, UpdateView):
         except:
             return False
 
-class EventCreateView(CreateView):
+class EventCreateView(LoginRequiredMixin, CreateView):
     model = Event
     fields = ['name', 'date', 'limit_of_players', 'description', 'language', 'comunidad']
 
@@ -148,10 +148,10 @@ class EventDeleteView(UserPassesTestMixin, DeleteView):
 class CommunityListView(ListView):
     model = Community
 
-class CommunityDetailView(DetailView):
+class CommunityDetailView(LoginRequiredMixin, DetailView):
     queryset = Community.objects.all()
 
-class CommunityUpdateView(UpdateView):
+class CommunityUpdateView(LoginRequiredMixin, UpdateView):
     queryset = Community.objects.all()
     fields = ['name', 'description', 'number_of_players', 'img', 'juegos', 'cliente'] 
     def test_func(self): 
@@ -160,11 +160,11 @@ class CommunityUpdateView(UpdateView):
         except:
             return False   
 
-class CommunityCreateView(CreateView):
+class CommunityCreateView(LoginRequiredMixin, CreateView):
     model = Community
     fields = ['name', 'description', 'number_of_players', 'img', 'juegos', 'cliente']
 
-class CommunityDeleteView(DeleteView):
+class CommunityDeleteView(LoginRequiredMixin, DeleteView):
     model = Community
     success_url = reverse_lazy('gmsk:communitys-list')
     def test_func(self):

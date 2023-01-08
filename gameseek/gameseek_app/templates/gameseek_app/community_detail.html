@@ -14,8 +14,11 @@
     <li style="list-style: none">{{ persona }}</li>
     {% endfor %}
     <br>
+    {% if request.user.is_authenticated %}    
     <button type="button" class="btn btn-dark" onclick="window.location.href='edit/'">Editar</button>
     <button type="button" class="btn btn-dark" onclick="window.location.href='delete/'">Eliminar</button>
+    
+    {% endif %}
     </ul>
 </section>
 {% endblock %}
