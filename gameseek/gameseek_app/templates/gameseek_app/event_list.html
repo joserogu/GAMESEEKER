@@ -22,9 +22,10 @@
                 <li class="wevo" style="list-style: none"><b>Descripción:</b> {{ event.description }}</li>
                 <li class="wevo" style="list-style: none"><b>Idioma:</b> {{ event.language }}</li>
                 <li class="wevo" style="list-style: none"><b>Fecha:</b> {{ event.date }}</li>
+                {% if user.is_authenticated %}
                 <li class="wevo" style="list-style: none"><b>Comunidad:</b></li>
-                
                 <button type="button" class="btn btn-dark"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href={% url 'gmsk:communitys-detail' event.comunidad.id %}>{{ event.comunidad }}</a></button>
+                {% endif %}
               </ul>
             </div>
           </div>
