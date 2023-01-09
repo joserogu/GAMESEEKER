@@ -24,7 +24,7 @@ class search(ListView):
     template_name="gameseek_app/search.html"
     def get_queryset(self):
         query = self.request.GET.get("q")
-        object_list=Community.objects.filter(Q(name__in=[query]))
+        object_list=Community.objects.filter(Q(name__icontains=query))
         return object_list
 
 #FUNCIÓN REGISTER

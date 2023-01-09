@@ -75,7 +75,6 @@ class Community(models.Model):
     description = models.CharField(max_length = 1000)
     number_of_players = models.PositiveBigIntegerField(null=False, blank=False)
     img = models.ImageField(upload_to='img/', null=True)
-    
 
     #RELACIÓN
     
