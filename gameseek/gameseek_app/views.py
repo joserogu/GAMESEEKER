@@ -148,11 +148,6 @@ class EventDeleteView(UserPassesTestMixin, DeleteView):
 class CommunityListView(ListView):
     model = Community
     
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['clientes']=Client.objects.filter(pk=self.request.user.pk)
-        return context
-    
 
 class CommunityDetailView(LoginRequiredMixin, DetailView):
     queryset = Community.objects.all()

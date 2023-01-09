@@ -47,6 +47,18 @@ p.card-text {
   color: black;
 }
 
+p#limite {
+  position: relative;
+  right: -10cm;
+  top: -3cm;
+}
+
+ul#jugadores1 {
+  position: absolute;
+  left: -5cm;
+  top: 3cm;
+}
+
 #listilla {
   overflow:hidden; 
   overflow-y:scroll;
