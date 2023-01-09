@@ -82,7 +82,7 @@ class ClientUpdateView(UserPassesTestMixin, UpdateView):
         except:
             return False
 
-class ClientCreateView(LoginRequiredMixin, CreateView):
+class ClientCreateView(CreateView):
     model = Client
     form_class=NewUserForm
     template_name="registration/register.html"
@@ -157,7 +157,7 @@ class CommunityDetailView(LoginRequiredMixin, DetailView):
         context['eventos']=Event.objects.filter(comunidad=self.kwargs.get("pk"))
         return context
 
-class CommunityUpdateView(LoginRequiredMixin, UpdateView):
+class CommunityUpdateView(UserPassesTestMixin, UpdateView):
     queryset = Community.objects.all()
     fields = ['name', 'description', 'number_of_players', 'img', 'juegos', 'cliente'] 
     def test_func(self): 
@@ -170,7 +170,7 @@ class CommunityCreateView(LoginRequiredMixin, CreateView):
     model = Community
     fields = ['name', 'description', 'number_of_players', 'img', 'juegos', 'cliente']
 
-class CommunityDeleteView(LoginRequiredMixin, DeleteView):
+class CommunityDeleteView(UserPassesTestMixin, DeleteView):
     model = Community
     success_url = reverse_lazy('gmsk:communitys-list')
     def test_func(self):
@@ -181,21 +181,21 @@ class CommunityDeleteView(LoginRequiredMixin, DeleteView):
 
 #GAMES
 
-class GameListView(ListView):
+class GameListView(LoginRequiredMixin, ListView):
     model = Game
 
-class GameDetailView(DetailView):
+class GameDetailView(LoginRequiredMixin, DetailView):
     queryset = Game.objects.all()
     template_name = "gameseek_app/game_detail.html"
 
-class GameUpdateView(UpdateView):
+class GameUpdateView(LoginRequiredMixin, UpdateView):
     queryset = Game.objects.all()
     fields = ['name', 'description', 'category']
 
-class GameCreateView(CreateView):
+class GameCreateView(LoginRequiredMixin, CreateView):
     model = Game
     fields = ['name', 'description', 'category']
 
-class GameDeleteView(DeleteView):
+class GameDeleteView(LoginRequiredMixin, DeleteView):
     model = Game
     success_url = reverse_lazy('gmsk:games-list')
