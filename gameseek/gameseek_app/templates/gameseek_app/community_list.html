@@ -70,9 +70,9 @@
                                                 
                                             </ul></p>
                                             
-                                            <ul id="listilla">
+                                            <ul id="listilla-carta">
                                                 <li style="list-style: none"><b>Jugadores:</b></li>
-                                            {% for persona in object.cliente.all %}
+                                            {% for persona in clientes %}
                                                 <li style="list-style: none">{{ persona }}</li>
                                             {% endfor %}
                                             </ul>

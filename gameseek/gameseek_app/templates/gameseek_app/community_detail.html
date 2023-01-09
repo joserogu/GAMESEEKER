@@ -19,9 +19,22 @@
     </ul>
 
     <h3>Eventos disponibles:</h3>
-
+    <br>
     {% for evento in eventos %}
-            <li style="list-style: none">{{ evento.name }}</li>
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ evento.name }}</h5>
+              <p class="card-text">{{ evento.description }}</p>
+              <p class="card-text"><small class="text-muted">{{ evento.date }}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>  
+
+    {% comment %} <li style="list-style: none">{{ evento.name }}</li> #CONSULTA REALIZADA{% endcomment %} 
+    
     {% empty %}
     <li style="list-style: none"><b>No se encuentra ningún evento disponible</b></li>
     {% endfor %}

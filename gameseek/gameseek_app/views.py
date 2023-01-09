@@ -126,7 +126,7 @@ class EventUpdateView(UserPassesTestMixin, UpdateView):
     fields = ['name', 'date', 'limit_of_players', 'description', 'language','comunidad']
     def test_func(self):
         try:
-            return Event.objects.get(pk=self.request.user.pk)==Event.objects.get(pk=self.kwargs.get("pk"))
+            return Event.objects.get(pk=self.request.user.pk)==Event.comunidad.cliente.get(pk=self.kwargs.get("pk"))
         except:
             return False
 
@@ -147,6 +147,7 @@ class EventDeleteView(UserPassesTestMixin, DeleteView):
 
 class CommunityListView(ListView):
     model = Community
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['clientes']=Client.objects.filter(pk=self.request.user.pk)

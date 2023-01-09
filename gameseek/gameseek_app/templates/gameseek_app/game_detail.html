@@ -8,8 +8,10 @@
     <li style="list-style: none"><b>Categoría:</b> {{ object.category }}</li>
     <li style="list-style: none"><b>Descipción:</b> {{ object.description }}</li>
     <br>
+    {% if request.user.is_superuser %}
     <button type="button" class="btn btn-dark" onclick="window.location.href='edit/'">Editar</button>
     <button type="button" class="btn btn-dark" onclick="window.location.href='delete/'">Eliminar</button>
+    {% endif %}
     </ul>
 </section>
 {% endblock %}

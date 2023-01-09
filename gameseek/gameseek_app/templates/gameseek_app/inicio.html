@@ -26,8 +26,9 @@ PARA NO JUGAR SOLO!</p>
     </header>
     <section class="page-section portfolio" id="portfolio">    
         <ul>
-
+        {% if request.user.is_superuser %}
         <h4><a href={% url 'gmsk:clients-list' %}>Clientes</a></h4>
+        {% endif %}
         <h4><a href={% url 'gmsk:communitys-list' %}>Comunidades</a></h4>
         <h4><a href={% url 'gmsk:events-list' %}>Eventos</a></h4>
         <h4><a href={% url 'gmsk:games-list' %}>Juegos</a></h4>

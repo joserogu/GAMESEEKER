@@ -39,10 +39,28 @@
 *::after {
   box-sizing: border-box; }
 
+h5.card-title {
+  color: black;
+}
+
+p.card-text {
+  color: black;
+}
+
 #listilla {
   overflow:hidden; 
   overflow-y:scroll;
   width: 250px;
+  height: 86px;
+}
+
+#listilla-carta {
+  overflow: hidden;
+  overflow-y: scroll;
+  left: -6cm;
+  top: 4cm;
+  width: 250px;
+  position: absolute;
   height: 86px;
 }
 
