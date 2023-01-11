@@ -29,17 +29,31 @@
           </div>
           {% for comunidad in comunidades %}
           <div class="carousel-item">
+            {% if comunidad.img %}
             <img class="d-block w-100" src="/media/{{ comunidad.img }}" alt="Third slide">
+            {% else %}
+            <img class="d-block w-100" src="/static/img/banner_1.jpg" alt="Third slide">
+            {% endif %}
             <div class="carousel-caption d-none d-md-block">
+              {% if comunidad.name and comunidad.description %}
                 <h1 class="masthead-heading mb-0">{{ comunidad.name }}</h1>
                 <br>
                 <p class="pre-wrap masthead-subheading font-weight-light mb-0">{{ comunidad.description }}</p>
+              {% else %}
+              <h1 class="masthead-heading mb-0">Crea una comunidad basada en tu juego favorito</h1>
+              <br>
+              <p class="pre-wrap masthead-subheading font-weight-light mb-0">Podrás crear eventos cuando necesites personas con las que jugar</p>
+                {% endif %}
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
+            {% if comunidad.name %}
             <p class="pre-wrap masthead-subheading font-weight-light mb-0"><a href={% url 'gmsk:communitys-detail' comunidad.id %}>Accede</a></p>
+            {% else %}
+            <p></p>
+            {% endif %}
               </div>
           </div>
           {% endfor %}
