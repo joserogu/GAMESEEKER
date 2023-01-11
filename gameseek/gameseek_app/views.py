@@ -8,6 +8,7 @@ from django.contrib import messages
 from .forms import NewUserForm
 from django.db.models import Q
 
+from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import UserPassesTestMixin
@@ -18,6 +19,13 @@ from django.contrib.auth.forms import AuthenticationForm
 
 class DefaultView(TemplateView):
     template_name="gameseek_app/inicio.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comunidad1']=Community.objects.all()[0:1]
+        context['comunidades']=Community.objects.all()[1:3]
+        context['eventos']=Event.objects.all()[0:3]
+        return context
 
 class search(ListView):
     model = Community
@@ -157,7 +165,8 @@ class CommunityDetailView(LoginRequiredMixin, DetailView):
         context['eventos']=Event.objects.filter(comunidad=self.kwargs.get("pk"))
         return context
 
-class CommunityUpdateView(UserPassesTestMixin, UpdateView):
+class CommunityUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):
+    model = Community
     queryset = Community.objects.all()
     fields = ['name', 'description', 'number_of_players', 'img', 'juegos', 'cliente'] 
     def test_func(self): 
@@ -170,14 +179,23 @@ class CommunityCreateView(LoginRequiredMixin, CreateView):
     model = Community
     fields = ['name', 'description', 'number_of_players', 'img', 'juegos', 'cliente']
 
-class CommunityDeleteView(UserPassesTestMixin, DeleteView):
+    def form_valid(self,form):
+        obj = form.save(commit=False)
+        obj.user = self.request.user
+        obj.save()
+        return HttpResponseRedirect(reverse_lazy('gmsk:communitys-list'))
+
+class CommunityDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Community
+    queryset = Community.objects.all()
     success_url = reverse_lazy('gmsk:communitys-list')
-    def test_func(self):
+    def test_func(self): 
         try:
-            return Community.objects.get(pk=self.request.user.pk)==Community.objects.get(pk=self.kwargs.get("pk"))
+            return User.objects.get(pk=self.request.user.pk)==User.objects.get(pk=self.kwargs.get("pk")) or self.request.user.is_superuser
         except:
-            return False  
+            return False
+        
+        
 
 #GAMES
 

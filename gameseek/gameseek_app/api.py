@@ -38,14 +38,14 @@ class ClientViewSet(viewsets.ModelViewSet):
 class EventSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Event
-        fields = ['name', 'date', 'limit_of_players', 'game', 'description', 'language']
+        fields = ['name', 'date', 'limit_of_players', 'description', 'language', 'comunidad']
 
-class EventViewSet(viewsets.ModelViewSet):
+class EventViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
 
     authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [IsAuthenticated, IsAdminUser]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):
         content = {
@@ -59,14 +59,14 @@ class EventViewSet(viewsets.ModelViewSet):
 class CommunitySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Community
-        fields = ['name', 'description', 'game', 'number_of_players', 'img']
+        fields = ['name', 'description', 'number_of_players', 'img', 'juegos', 'cliente']
 
-class CommunityViewSet(viewsets.ModelViewSet):
+class CommunityViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Community.objects.all()
     serializer_class = CommunitySerializer
 
     authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [IsAuthenticated, IsAdminUser]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):
         content = {
@@ -82,12 +82,12 @@ class GameSerializer(serializers.HyperlinkedModelSerializer):
         model = Game
         fields = ['name', 'description', 'category']
 
-class GameViewSet(viewsets.ModelViewSet):
+class GameViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Game.objects.all()
     serializer_class = GameSerializer
 
     authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [IsAuthenticated, IsAdminUser]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):
         content = {
