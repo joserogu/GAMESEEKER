@@ -3,17 +3,6 @@
 
 {% block title %}Inicio{% endblock %}
 
-{% comment %} {% for comunidad in comunidades %}
-                  <div class="carousel-item">
-                    <img src="/media/{{ comunidad.img }}" class="d-block w-100" alt="">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>{{ comunidad.name }}</h5>
-                        <p>{{ comunidad.description }}</p>
-                        <p>Jugadores: {{ comunidad.number_of_players }}</p>
-                    </div>
-                  </div>
-                  {% endfor %} {% endcomment %}
-
 {% block content %}
 <body id="page-top">
     
@@ -25,20 +14,18 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            {% for comunidad in comunidad1 %}
-            <img class="d-block w-100" src="/media/{{ comunidad.img }}" alt="First slide">
+            <img class="d-block w-100" src="/static/img/banner.jpg" alt="First slide">
             <div class="carousel-caption d-none d-md-block">
-                <h1 class="masthead-heading mb-0">{{ comunidad.name }}</h1>
+                <h1 class="masthead-heading mb-0">Bienvenid@s a Gameseeker</h1>
                 <br>
-                <p class="pre-wrap masthead-subheading font-weight-light mb-0">{{ comunidad.description }}</p>
+                <p class="pre-wrap masthead-subheading font-weight-light mb-0">Conoce gente para que tus partidas no se hagan aburridas</p>
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
-            <p class="pre-wrap masthead-subheading font-weight-light mb-0"><a href={% url 'gmsk:communitys-detail' comunidad.id %}>Accede</a></p>
+            <p class="pre-wrap masthead-subheading font-weight-light mb-0">Busca tus comunidades favoritas!!</p>
               </div>
-              {% endfor %}
           </div>
           {% for comunidad in comunidades %}
           <div class="carousel-item">

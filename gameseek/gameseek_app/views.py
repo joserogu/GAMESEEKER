@@ -22,8 +22,7 @@ class DefaultView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['comunidad1']=Community.objects.all()[0:1]
-        context['comunidades']=Community.objects.all()[1:3]
+        context['comunidades']=Community.objects.all()[0:2]
         context['eventos']=Event.objects.all()[0:3]
         return context
 
@@ -134,7 +133,7 @@ class EventUpdateView(UserPassesTestMixin, UpdateView):
     fields = ['name', 'date', 'limit_of_players', 'description', 'language','comunidad']
     def test_func(self):
         try:
-            return Event.objects.get(pk=self.request.user.pk)==Event.comunidad.cliente.get(pk=self.kwargs.get("pk"))
+            return self.request.user.is_superuser
         except:
             return False
 
@@ -147,7 +146,7 @@ class EventDeleteView(UserPassesTestMixin, DeleteView):
     success_url = reverse_lazy('gmsk:events-list')
     def test_func(self):
         try:
-            return Event.objects.get(pk=self.request.user.pk)==Event.objects.get(pk=self.kwargs.get("pk"))
+            return self.request.user.is_superuser
         except:
             return False
 
@@ -171,7 +170,7 @@ class CommunityUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):
     fields = ['name', 'description', 'number_of_players', 'img', 'juegos', 'cliente'] 
     def test_func(self): 
         try:
-            return Community.objects.get(pk=self.request.user.pk)==Community.objects.get(pk=self.kwargs.get("pk"))
+            return self.request.user.is_superuser
         except:
             return False   
 
@@ -191,7 +190,7 @@ class CommunityDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     success_url = reverse_lazy('gmsk:communitys-list')
     def test_func(self): 
         try:
-            return User.objects.get(pk=self.request.user.pk)==User.objects.get(pk=self.kwargs.get("pk")) or self.request.user.is_superuser
+            return self.request.user.is_superuser
         except:
             return False
         
