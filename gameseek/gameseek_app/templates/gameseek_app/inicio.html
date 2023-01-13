@@ -32,7 +32,7 @@
             {% if comunidad.img %}
             <img class="d-block w-100" src="/media/{{ comunidad.img }}" alt="Third slide">
             {% else %}
-            <img class="d-block w-100" src="/static/img/banner_1.jpg" alt="Third slide">
+            <img class="d-block w-100" src="{% static 'img/banner_1.jpg' %}" alt="Third slide">
             {% endif %}
             <div class="carousel-caption d-none d-md-block">
               {% if comunidad.name and comunidad.description %}
@@ -67,7 +67,7 @@
           <span class="sr-only">Next</span>
         </a>
     </header>
-    <div class="container d-flex align-items-center flex-column">  
+    <div id="juanito"class="container d-flex align-items-center flex-column">  
             <!-- Masthead Subheading-->
             <h2 id="juanillo" class="page-section-heading text-secondary mb-0 d-inline-block">BUSCA COMUNIDADES DE TUS JUEGOS FAVORITOS!
                 PARA NO JUGAR SOLO!</h2>
@@ -155,32 +155,10 @@
             </div>
         </div>
     </section>
-    <!-- Portfolio Modal-->
-    <section class="masthead bg-primary text-white text-center" id="portfolio">
-        
-    </section>
+
 
     {% endblock %}
-    <footer class="footer text-center">
-        <div class="container">
-            <div class="row">
-                <!-- Footer Location-->
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h4 class="mb-4">UBICACIÓN</h4>
-                    <p class="pre-wrap lead mb-0">ESPAÑA</p>
-                </div>
-                <!-- Footer Social Icons-->
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h4 class="mb-4">MIS REDES SOCIALES</h4><a class="btn btn-outline-light btn-social mx-1" href="https://www.twitter.com/https://twitter.com/Gameseeker_"><i class="fab fa-fw fa-twitter"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/https://www.linkedin.com/in/jos%C3%A9-manuel-rodr%C3%ADguez-guerrero-367a09234/"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                </div>
-                <!-- Footer About Text-->
-                <div class="col-lg-4">
-                    <h4 class="mb-4">SOBRE GAMESEEKER</h4>
-                    <p class="pre-wrap lead mb-0">Gameseeker requiere de registro para poder unirse o crear eventos. ¿A qué esperas?</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+
     
     <!-- Copyright Section-->
     <section class="copyright py-4 text-center text-white">

@@ -4796,7 +4796,7 @@ button.bg-primary:focus {
   background-color: #040304 !important; }
 
 .bg-secondary {
-  background-color: #8c53fe !important; }
+  background-color: rgb(175, 51, 255, 0.5); }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
 button.bg-secondary:hover,
@@ -7469,7 +7469,7 @@ form .row:first-child .floating-label-form-group {
   color: #fff; }
 
 .copyright {
-  background-color: #8c53fe; }
+  background-color: #202326; }
 
 #brandImage {
   height: 2rem; }
