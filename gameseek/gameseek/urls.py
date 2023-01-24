@@ -14,21 +14,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
 from gameseek_app.views import *
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from gameseek_app.api import *
+from wagtail.admin import urls as wagtailadmin_urls
+from wagtail import urls as wagtail_urls
+from wagtail.documents import urls as wagtaildocs_urls
 
 urlpatterns = [
     path('', include(('gameseek_app.urls','gmsk'),namespace="gmsk")),
     path('contacto/', contact),
-    path('admin/', admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
     
     #API
     path('api/', include(api.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+        #Wag
+    path('cms/', include(wagtailadmin_urls)),
+    path('documents/', include(wagtaildocs_urls)),
+    path('pages/', include(wagtail_urls)),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
