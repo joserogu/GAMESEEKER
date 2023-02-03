@@ -11,6 +11,19 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+#from django_auth_ldap.backend import LDAPBackend
+
+
+############################
+############################
+
+import ldap
+from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
+
+
+
+############################
+############################
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +36,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-81%h*yy8ekwqt__appbfwbn^pkl13uo*cvw7m4&$94d6&^8zpc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -105,6 +118,11 @@ WSGI_APPLICATION = 'gameseek.wsgi.application'
 #     }
 # }
 
+AUTHENTICATION_BACKENDS = [
+    "django_auth_ldap.backend.LDAPBackend",
+    "django.contrib.auth.backends.ModelBackend",
+]
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -154,6 +172,9 @@ STATICFILES_DIRS=[
     '/var/www/GAMESEEKER/gameseek/static/',
 ]
 
+AUTHENTICATION_BACKENDS = ["django_auth_ldap.backend.LDAPBackend"]
+
+
 import os
 
 #STATIC RUTES
@@ -188,3 +209,25 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 
 }
+
+#LDAP CONFIG
+AUTHENTICATION_BACKENDS = [
+    "django_auth_ldap.backend.LDAPBackend",
+    "django.contrib.auth.backends.ModelBackend",
+]
+AUTH_LDAP_SERVER_URI = "ldap://localhost:1389"
+AUTH_LDAP_BIND_DN = "cn=admin,dc=example,dc=org"
+AUTH_LDAP_BIND_PASSWORD = "adminpassword"
+AUTH_LDAP_USER_SEARCH = LDAPSearch(
+    "ou=users,dc=example,dc=org", ldap.SCOPE_SUBTREE, "(uid=%(user)s)"
+)
+
+
+AUTH_LDAP_USER_ATTR_MAP = {
+    "email": "mail",
+}
+#WAGTAIL LDAP
+WAGTAILUSERS_PASSWORD_ENABLED = False
+WAGTAIL_PASSWORD_MANAGEMENT_ENABLED = False
+WAGTAIL_PASSWORD_RESET_ENABLED = False
+
