@@ -27,13 +27,13 @@ urlpatterns = [
     path('', include(('gameseek_app.urls','gmsk'),namespace="gmsk")),
     path('contacto/', contact),
     path("accounts/", include("django.contrib.auth.urls")),
-    
+    #ADMIN
+    path('admin/', admin.site.urls),
     #API
     path('api/', include(api.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
         #Wag
     path('cms/', include(wagtailadmin_urls)),
-    path('documents/', include(wagtaildocs_urls)),
     path('pages/', include(wagtail_urls)),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

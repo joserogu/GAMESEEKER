@@ -1,17 +1,29 @@
 from django.db import models
 
-# New imports added for ParentalKey, Orderable, InlinePanel
+# Create your models here.
+from django.db import models
 
-from modelcluster.fields import ParentalKey
-
-from wagtail.models import Page, Orderable
+from wagtail.models import Page
 from wagtail.fields import RichTextField
-from wagtail.admin.panels import FieldPanel, InlinePanel
+from wagtail.admin.panels import FieldPanel
 from wagtail.search import index
 
 
-# ... (Keep the definition of BlogIndexPage, and update BlogPage:)
+# Keep the definition of BlogIndexPage, and add:
 
+from wagtail.models import Page
+from wagtail.fields import RichTextField
+from wagtail.admin.panels import FieldPanel
+
+
+class BlogIndexPage(Page):
+
+    def get_context(self, request):
+        context = super().get_context(request)
+
+        # Add extra variables and return the updated context
+        context['blog_entries'] = BlogPage.objects.child_of(self).live()
+        return context
 
 class BlogPage(Page):
     date = models.DateField("Post date")
@@ -27,18 +39,4 @@ class BlogPage(Page):
         FieldPanel('date'),
         FieldPanel('intro'),
         FieldPanel('body'),
-        InlinePanel('gallery_images', label="Gallery images"),
-    ]
-
-
-class BlogPageGalleryImage(Orderable):
-    page = ParentalKey(BlogPage, on_delete=models.CASCADE, related_name='gallery_images')
-    image = models.ForeignKey(
-        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
-    )
-    caption = models.CharField(blank=True, max_length=250)
-
-    panels = [
-        FieldPanel('image'),
-        FieldPanel('caption'),
     ]

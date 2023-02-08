@@ -11,19 +11,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-#from django_auth_ldap.backend import LDAPBackend
-
-
-############################
-############################
-
-import ldap
-from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
-
-
-
-############################
-############################
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,18 +31,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'gameseek_app.apps.GameseekAppConfig',
-    'wag_gameseek.apps.WagGameseekConfig',
-    'django_extensions',
-    'crispy_forms',
-    'rest_framework',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'rest_framework.authtoken',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
@@ -69,6 +44,16 @@ INSTALLED_APPS = [
     'wagtail',
     'modelcluster',
     'taggit',
+    'gameseek_app.apps.GameseekAppConfig',
+    'django_extensions',
+    'crispy_forms',
+    'rest_framework',
+    'django.contrib.admin',
+    'django.contrib.auth',   
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
 ]
 AUTH_USER_MODEL = "gameseek_app.Client"
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -82,10 +67,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
+WAGTAIL_SITE_NAME = 'Gameseeker Blog'
+WAGTAILADMIN_BASE_URL = 'http://example.com'
 
 ROOT_URLCONF = 'gameseek.urls'
-WAGTAIL_SITE_NAME = 'wag_gameseek'
-WAGTAILADMIN_BASE_URL = 'cms/'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -118,20 +104,16 @@ WSGI_APPLICATION = 'gameseek.wsgi.application'
 #     }
 # }
 
-AUTHENTICATION_BACKENDS = [
-    "django_auth_ldap.backend.LDAPBackend",
-    "django.contrib.auth.backends.ModelBackend",
-]
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'OPTIONS': {
-            'service': 'gameseeker',
-            'passfile': '.my_pgpass',
-        },
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'OPTIONS': {
+           'service': 'gameseeker',
+           'passfile': '.my_pgpass',
+       },
+   }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -167,19 +149,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATICFILES_DIRS=[
-    BASE_DIR / "static",
-    '/var/www/GAMESEEKER/gameseek/static/',
-]
-
-AUTHENTICATION_BACKENDS = ["django_auth_ldap.backend.LDAPBackend"]
-
+STATIC_URL = 'static/'
 
 import os
 
+STATICFILES_DIRS=[
+    BASE_DIR / "static"
+]
+
 #STATIC RUTES
 
-STATIC_URL = 'static/'
 #STATIC_ROOT = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -201,33 +180,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ],
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
 
 }
-
-#LDAP CONFIG
-AUTHENTICATION_BACKENDS = [
-    "django_auth_ldap.backend.LDAPBackend",
-    "django.contrib.auth.backends.ModelBackend",
-]
-AUTH_LDAP_SERVER_URI = "ldap://localhost:1389"
-AUTH_LDAP_BIND_DN = "cn=admin,dc=example,dc=org"
-AUTH_LDAP_BIND_PASSWORD = "adminpassword"
-AUTH_LDAP_USER_SEARCH = LDAPSearch(
-    "ou=users,dc=example,dc=org", ldap.SCOPE_SUBTREE, "(uid=%(user)s)"
-)
-
-
-AUTH_LDAP_USER_ATTR_MAP = {
-    "email": "mail",
-}
-#WAGTAIL LDAP
-WAGTAILUSERS_PASSWORD_ENABLED = False
-WAGTAIL_PASSWORD_MANAGEMENT_ENABLED = False
-WAGTAIL_PASSWORD_RESET_ENABLED = False
-
