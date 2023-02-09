@@ -17,13 +17,11 @@ from wagtail.admin.panels import FieldPanel
 
 
 class BlogIndexPage(Page):
+    intro = RichTextField(blank=True)
 
-    def get_context(self, request):
-        context = super().get_context(request)
-
-        # Add extra variables and return the updated context
-        context['blog_entries'] = BlogPage.objects.child_of(self).live()
-        return context
+    content_panels = Page.content_panels + [
+        FieldPanel('intro')
+    ]
 
 class BlogPage(Page):
     date = models.DateField("Post date")

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
     'gameseek_app.apps.GameseekAppConfig',
+    'wag_gameseek.apps.WagGameseekConfig',
     'django_extensions',
     'crispy_forms',
     'rest_framework',
