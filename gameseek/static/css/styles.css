@@ -136,6 +136,8 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #ffffff;
+  position: relative;
+  top: 2cm;
   text-align: left;
   background-color: #202326; }
 
