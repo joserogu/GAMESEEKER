@@ -43,6 +43,7 @@ h5.card-title {
   color: black;
 }
 
+
 p#volver {
   position: relative;
   bottom: -8cm;
@@ -5669,8 +5670,9 @@ button.bg-dark:focus {
 .vw-100 {
   width: 100vw !important; }
 
+
 .vh-100 {
-  height: 100vh !important; }
+  height: auto !important; }
 
 .stretched-link::after {
   position: absolute;
@@ -5907,7 +5909,7 @@ button.bg-dark:focus {
 
 .pb-5,
 .py-5 {
-  padding-bottom: 3rem !important; }
+  padding-bottom: 7.8rem !important; }
 
 .pl-5,
 .px-5 {
