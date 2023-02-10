@@ -43,6 +43,12 @@ h5.card-title {
   color: black;
 }
 
+p#volver {
+  position: relative;
+  bottom: -8cm;
+  padding-left: 24cm;
+}
+
 p.card-text {
   color: black;
 }
@@ -79,6 +85,13 @@ p#limite {
   position: relative;
   right: -10cm;
   top: -3cm;
+}
+
+div#fotito {
+  float: left;
+  margin: 10px;
+  right: -21cm;
+  position: relative;
 }
 
 h2#juanillo {
@@ -137,7 +150,7 @@ body {
   line-height: 1.5;
   color: #ffffff;
   position: relative;
-  top: 2cm;
+  top: 0cm;
   text-align: left;
   background-color: #202326; }
 
@@ -5865,7 +5878,9 @@ button.bg-dark:focus {
 
 .pt-4,
 .py-4 {
-  padding-top: 1.5rem !important; }
+  padding-top: 1.5rem !important;
+  position: relative;
+  bottom: -14cm;}
 
 .pr-4,
 .px-4 {
@@ -7321,7 +7336,9 @@ h3 {
   padding-top: 1rem;
   padding-bottom: 1rem;
   font-family: "SB Heading", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 700; }
+  font-weight: 700; 
+  position: relative;
+  top: 0cm;}
   #mainNav .navbar-brand {
     color: #fff; }
   #mainNav .navbar-nav {
@@ -7374,7 +7391,7 @@ h3 {
 
 @media (min-width: 992px) {
   .masthead {
-      margin-top: 94px;
+      margin-top: -1px;
       padding-top: 1px;
       padding-bottom: 2px;
    }

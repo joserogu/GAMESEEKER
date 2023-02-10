@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser, User
 from django.urls import reverse, path, include
 from rest_framework import routers, serializers, viewsets
 
+
 #CLIENTE
 
 class Client(AbstractUser):

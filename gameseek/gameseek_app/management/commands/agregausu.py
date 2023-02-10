@@ -2,6 +2,7 @@ from django.contrib.auth.models import Group
 from gameseek_app.models import User, Client
 from django.core.management.base import BaseCommand
 from django.utils.crypto import get_random_string
+from django.contrib.auth.signals import user_logged_in
 
 class Command(BaseCommand):
     
