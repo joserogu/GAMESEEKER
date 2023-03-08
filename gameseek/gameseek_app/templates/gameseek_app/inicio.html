@@ -74,15 +74,15 @@
         </div>
     </header>
     <section class="page-section portfolio" id="portfolio">    
-        <ul>
+        <center>
         {% if request.user.is_superuser %}
         <h1><a href={% url 'gmsk:clients-list' %}>Clientes</a></h1>
         {% endif %}
         <h1><a href={% url 'gmsk:communitys-list' %}>Comunidades</a></h1>
         <h1><a href={% url 'gmsk:events-list' %}>Eventos</a></h1>
         <h1><a href={% url 'gmsk:games-list' %}>Juegos</a></h1>
+        </center>
         
-        </ul>
     </section>
     <section class="masthead bg-primary text-white text-center" id="portfolio">
         <div class="container">
@@ -104,13 +104,13 @@
                     <div class="card">
                       <div class="card-header" id="headingOne">
                         <h1 class="mb-0">
-                          <button class="btn btn-link collapsed" aria-hidden="true" data-toggle="collapse" data-target="#collapse{{ forloop.counter0 }}" aria-expanded="true" aria-controls="collapseOne">
+                          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse{{ forloop.counter0 }}" aria-expanded="true" aria-controls="collapseOne">
                             {{ event.name }}
                           </button>
                         </h1>
                       </div>
                       
-                      <div id="collapse{{ forloop.counter0 }}" class="collapse"  data-parent="#accordion">
+                      <div id="collapse{{ forloop.counter0 }}" class="collapse" data-parent="#accordion">
                         <div class="card-body">
                           <ul>
                             <li class="wevo" style="list-style: none"><b>Descripción:</b> {{ event.description }}</li>

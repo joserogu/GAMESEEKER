@@ -19,7 +19,7 @@ class Client(AbstractUser):
         MUJER = "MUJER", _("Mujer")
         OTRO = "OTRO", _("Otro")
     username = models.CharField(max_length=50, unique=True, null=False, blank=False)
-    email = models.EmailField(max_length = 254, unique=True, null=False, blank=False)
+    email = models.EmailField(max_length = 254, unique=False, null=False, blank=False)
     gender = models.CharField(
         max_length = 7,
         choices=Gender.choices,

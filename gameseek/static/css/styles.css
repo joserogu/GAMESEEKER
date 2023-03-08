@@ -54,7 +54,7 @@ h2.page-section-heading.d-inline-block.text-white {
 }
 
 img.d-block.w-100 {
-  height: 13cm;
+  height: auto;
   opacity: .3;
 }
 
@@ -6672,7 +6672,7 @@ a.text-primary:hover, a.text-primary:focus {
   color: black !important; }
 
 .text-secondary {
-  color: rgb(162, 0, 255); }
+  color: rgb(255, 255, 255); }
 
 a.text-secondary:hover, a.text-secondary:focus {
   color: #5907fe !important; }

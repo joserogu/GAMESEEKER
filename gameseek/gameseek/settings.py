@@ -84,7 +84,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'matomo',
 ]
+
 AUTH_USER_MODEL = "gameseek_app.Client"
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
@@ -134,6 +136,7 @@ WSGI_APPLICATION = 'gameseek.wsgi.application'
 #     }
 # }
 
+#ESTO ES PARA POSTGRESQL A RDS
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
@@ -214,3 +217,6 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = '/var/www/GAMESEEKER/messages'
